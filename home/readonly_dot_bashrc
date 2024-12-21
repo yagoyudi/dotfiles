@@ -14,6 +14,7 @@ export EDITOR="nvim"
 export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass";
 export KUBECONFIG="$HOME/homelab/z/kubeconfig"
 export TALOSCONFIG="$HOME/homelab/z/talosconfig.yaml"
+export NIXOS_CONFIG="$HOME/.local/share/chezmoi/nixos"
 
 eval "$(starship init bash)"
 
