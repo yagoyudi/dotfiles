@@ -11,6 +11,10 @@ func Deploy() error {
 	return sh.RunV("chezmoi", "apply", "-v")
 }
 
+func BuildNixOS() error {
+	return sh.RunV("sudo", "nixos-rebuild", "switch")
+}
+
 func EnsureMage() error {
 	return pkg.EnsureMage("")
 }
