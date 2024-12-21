@@ -1,0 +1,9 @@
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = false
+
+[user]
+	email = "yagofuruta@protonmail.com"
+	name = "yago yudi"
