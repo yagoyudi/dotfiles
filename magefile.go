@@ -7,6 +7,11 @@ import (
 	"github.com/magefile/mage/sh"
 )
 
+var Aliases = map[string]any{
+	"n": rebuildNixos,
+	"c": chezmoiApply,
+}
+
 func chezmoiApply() error {
 	return sh.RunV("chezmoi", "apply", "-v")
 }
