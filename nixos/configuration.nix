@@ -169,6 +169,7 @@
     gopass
     chezmoi
     podman
+    zathura
 
     alacritty
     wireshark
