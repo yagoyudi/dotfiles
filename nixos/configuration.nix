@@ -65,8 +65,8 @@
   };
 
   programs = {
-    virt-manager.enable = true;
-    wireshark.enable = true;
+    #virt-manager.enable = true;
+    #wireshark.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
