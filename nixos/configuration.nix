@@ -181,6 +181,8 @@
     river
     sway
 
+    firefox
+
     # text editor
     vim-full
     neovim
