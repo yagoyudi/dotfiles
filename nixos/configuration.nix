@@ -185,6 +185,9 @@
     neovim
     emacs
 
+    dmenu-wayland
+    rofi
+
     swaykbdd # per-window keyboard layout for sway
     wayland-utils # wayland utilities (wayland-info)
     wl-clip-persist # keep wayland clipboard even after programs close
@@ -193,7 +196,6 @@
     wlprop # xprop clone for wlroots based compositors
     wvkbd # on-screen keyboard for wlroots
     waypipe
-    dmenu-wayland
     swaylock
   ];
 
