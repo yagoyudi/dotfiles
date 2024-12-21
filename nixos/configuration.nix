@@ -158,7 +158,6 @@
     cmake
     libtool
     pandoc
-    vim-full
     tmux
     fish
     w3m
@@ -169,16 +168,22 @@
     git
     gopass
     chezmoi
-    neovim
     podman
 
     alacritty
-    dwl
-    river
-    emacs
     wireshark
 
     mako
+
+    # WM
+    dwl
+    river
+    sway
+
+    # text editor
+    vim-full
+    neovim
+    emacs
 
     swaykbdd # per-window keyboard layout for sway
     wayland-utils # wayland utilities (wayland-info)
