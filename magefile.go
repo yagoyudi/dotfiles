@@ -8,15 +8,15 @@ import (
 )
 
 var Aliases = map[string]any{
-	"n": rebuildNixos,
-	"c": chezmoiApply,
+	"rn": RebuildNixos,
+	"ca": ChezmoiApply,
 }
 
-func chezmoiApply() error {
+func ChezmoiApply() error {
 	return sh.RunV("chezmoi", "apply", "-v")
 }
 
-func rebuildNixos() error {
+func RebuildNixos() error {
 	if err := sh.RunV("sudo", "cp", "-r", "./nixos", "/etc"); err != nil {
 		return err
 	}
@@ -24,10 +24,10 @@ func rebuildNixos() error {
 }
 
 func Deploy() error {
-	if err := chezmoiApply(); err != nil {
+	if err := ChezmoiApply(); err != nil {
 		return err
 	}
-	return rebuildNixos()
+	return RebuildNixos()
 }
 
 func EnsureMage() error {
