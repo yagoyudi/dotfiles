@@ -15,6 +15,7 @@ export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass";
 export KUBECONFIG="$HOME/homelab/z/kubeconfig"
 export TALOSCONFIG="$HOME/homelab/z/talosconfig.yaml"
 export NIXOS_CONFIG="$HOME/.local/share/chezmoi/nixos"
+export NIX_PATH=nixos-config=$HOME/.local/share/chezmoi/nixos/configuration.nix
 
 eval "$(starship init bash)"
 

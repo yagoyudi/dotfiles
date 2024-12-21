@@ -8,11 +8,15 @@ import (
 )
 
 func Deploy() error {
-	return sh.RunV("chezmoi", "apply", "-v")
-}
+	if err := sh.RunV("chezmoi", "apply", "-v"); err != nil {
+		return err
+	}
 
-func BuildNixOS() error {
-	return sh.RunV("sudo", "nixos-rebuild", "switch")
+	if err := sh.RunV("sudo", "nixos-rebuild", "switch"); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func EnsureMage() error {
