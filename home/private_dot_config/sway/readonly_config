@@ -103,11 +103,9 @@ bar {
   swaybar_command echo 'no bar, btw'
 }
 
-exec /nix/store/4rmw858wxl5r4jyvbpgjsz38968lm3a3-alacritty-0.14.0/bin/alacritty
-
-exec /nix/store/3zc6xv01k9zvj77hzvk48ag2ybazjvsd-firefox-133.0/bin/firefox
-
-exec "/nix/store/d5bki4k0jpnw5897kbnaclzmxrhdxc8c-dbus-1.14.10/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target"
+exec alacritty
+exec firefox
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
 
 workspace 1 output DP-1
