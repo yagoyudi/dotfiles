@@ -1,0 +1,34 @@
+syntax enable
+filetype indent plugin on
+
+set background=dark
+set sw=4 ts=4 sts=4
+set nocompatible
+set nobackup
+set noswapfile
+set nowritebackup
+set path+=** " Search down into subfolders.
+set wildmenu " Display all matching files when we tab complete.
+
+" Netrw:
+let g:netrw_banner=0        " Disable annoying banner.
+let g:netrw_browse_split=4  " Open in prior window.
+let g:netrw_altv=1          " Open splits to the right.
+let g:netrw_liststyle=3     " Tree view.
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+" Check |netrw-browse-maps| for more mappings.
+
+" Go:
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_functions_parameters = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
