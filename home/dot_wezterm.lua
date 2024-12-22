@@ -1,68 +1,53 @@
 local wezterm = require("wezterm")
 
------------------------------ detect_os ----------------------------
-
-local function detect_os()
-  if wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin" then
-    return "macos"
-  elseif wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    return "windows"
-  elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-    return "linux"
-  else
-    return "unknown"
-  end
-end
-
-local myos = detect_os()
-
---------------------------- detect_shell ---------------------------
-
-local function detect_shell()
-  if myos == "windows" then
-    return { "wsl.exe" }
-  elseif myos == "mac" then
-    return { "/opt/homebrew/bin/bash", "--login", }
-  else
-    return {"/bin/bash", "--login"}
-  end
-end
-
----------------------------- detect_font ---------------------------
-
-local function detect_font()
-  if myos == "windows" then
-    return wezterm.font("Ubuntu Mono")
-  else
-    return wezterm.font("UbuntuMono Nerd Font")
-  end
-end
-
-------------------------------- main -------------------------------
-
 return {
-  window_close_confirmation = 'NeverPrompt',
-  --default_prog = detect_shell(),
 
-  color_scheme = 'Gruvbox Material (Gogh)',
+  font_size = 12,
   font = wezterm.font("Fira Code"),
-  font_size = 13,
-
-  colors = {
-    --cursor_bg = '#928374',
-    --cursor_border = '#928374',
-  },
 
   window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
+   left = 0,
+   right = 0,
+   top = 0,
+   bottom = 0,
   },
 
-  front_end = "WebGpu",
-  enable_tab_bar = false,
-  term = "xterm-256color",
+  term = "xterm-254color",
   animation_fps = 60,
   max_fps = 60,
+  window_decorations = "RESIZE",
+
+  enable_tab_bar = false,
+  front_end = "WebGpu",
+  hide_tab_bar_if_only_one_tab = true,
+
+  colors = {
+     foreground = "#d4be98", -- Default text color
+     cursor_bg  = "#d4be98", -- Default text color
+     cursor_border = "#d4be98", -- Default text color
+     background = "#282828", -- Background color
+     selection_bg = "#45403d" ,
+
+    ansi = {
+      "#282828", -- Black (Normal)
+      "#cc241d", -- Red (Normal)
+      "#98971a", -- Green (Normal)
+      "#d79921", -- Yellow (Normal)
+      "#458588", -- Blue (Normal)
+      "#b16286", -- Magenta (Normal)
+      "#689d6a", -- Cyan (Normal)
+      "#a89984", -- White (Normal)
+    },
+    brights = {
+      "#928374", -- Bright Black
+      "#fb4934", -- Bright Red
+      "#b8bb26", -- Bright Green
+      "#fabd2f", -- Bright Yellow
+      "#83a598", -- Bright Blue
+      "#d3869b", -- Bright Magenta
+      "#8ec07c", -- Bright Cyan
+      "#ebdbb2", -- Bright White
+    }
+  }
+
 }
