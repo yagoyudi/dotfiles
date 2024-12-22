@@ -67,4 +67,9 @@ vim.opt.sts = 4
 
 vim.opt.termguicolors = false
 
+vim.fn.sign_define('DiagnosticSignError', { text = '🔥', texthl = 'DiagnosticError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '❗️', texthl = 'DiagnosticWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = '✨', texthl = 'DiagnosticInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '💡', texthl = 'DiagnosticHint' })
+
 -- vim: ts=2 sts=2 sw=2 et
