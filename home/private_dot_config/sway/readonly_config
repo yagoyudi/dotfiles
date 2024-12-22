@@ -103,11 +103,6 @@ bar {
   swaybar_command echo 'no bar, btw'
 }
 
-seat * {
-  cursor_theme Adwaita
-  cursor_size 24
-}
-
 exec alacritty
 exec firefox
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
