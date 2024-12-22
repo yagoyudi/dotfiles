@@ -171,7 +171,8 @@
     podman
     zathura
 
-    alacritty
+    wezterm
+
     wireshark
 
     mako
