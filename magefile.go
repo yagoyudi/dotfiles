@@ -13,7 +13,7 @@ var Aliases = map[string]any{
 }
 
 func ChezmoiApply() error {
-	return sh.RunV("chezmoi", "apply", "-v")
+	return sh.RunV("chezmoi", "apply")
 }
 
 func RebuildNixos() error {
