@@ -202,6 +202,8 @@
     wvkbd # on-screen keyboard for wlroots
     waypipe
     swaylock
+
+    qemu
   ];
 
   time.timeZone = "America/Sao_Paulo";
