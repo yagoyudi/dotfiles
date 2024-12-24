@@ -167,6 +167,7 @@
     gh
     git
     gopass
+    gopass-jsonapi
     chezmoi
     podman
     zathura
