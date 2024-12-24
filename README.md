@@ -1,6 +1,6 @@
 # github.com/yagoyudi/dotfiles
 
-## Installation
+Install with:
 
     chezmoi init --apply yagoyudi
 
