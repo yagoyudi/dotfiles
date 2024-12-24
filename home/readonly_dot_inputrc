@@ -1,4 +1,7 @@
 set editing-mode vi
 set show-mode-in-prompt on
+
 set completion-ignore-case on
 set show-all-if-ambiguous on
+
+set bell-style none
