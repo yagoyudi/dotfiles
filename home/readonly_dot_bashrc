@@ -8,7 +8,6 @@ alias grep="grep --color=auto"
 alias k="kubectl"
 alias vi="nvim"
 alias dot="chezmoi"
-alias wezterm="env -u WAYLAND_DISPLAY wezterm"
 
 export PATH="$PATH:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin"
 export EDITOR="nvim"
