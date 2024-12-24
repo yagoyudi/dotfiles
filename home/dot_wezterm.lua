@@ -18,8 +18,10 @@ return {
   window_decorations = "RESIZE",
 
   enable_tab_bar = false,
-  front_end = "WebGpu",
   hide_tab_bar_if_only_one_tab = true,
+
+  front_end = "WebGpu",
+  enable_wayland = false,
 
   colors = {
      foreground = "#d4be98", -- Default text color
