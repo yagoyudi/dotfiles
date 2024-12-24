@@ -190,9 +190,7 @@
     neovim
     emacs
 
-    dmenu-wayland
     rofi
-    rofi-pass
 
     swaykbdd # per-window keyboard layout for sway
     wayland-utils # wayland utilities (wayland-info)
