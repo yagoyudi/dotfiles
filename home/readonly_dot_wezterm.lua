@@ -21,7 +21,7 @@ return {
   hide_tab_bar_if_only_one_tab = true,
 
   front_end = "WebGpu",
-  enable_wayland = true,
+  enable_wayland = false,
 
   colors = {
      foreground = "#d4be98", -- Default text color
