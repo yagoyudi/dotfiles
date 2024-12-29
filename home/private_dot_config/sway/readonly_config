@@ -87,6 +87,8 @@ input "type:keyboard" {
 }
 
 input "type:touchpad" {
+  repeat_delay 300
+  repeat_rate 100
   tap enabled
 }
 
