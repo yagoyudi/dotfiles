@@ -77,8 +77,8 @@ bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
 bindsym XF86AudioMicMute exec pulsemixer --set-mute $(pulsemixer --list-sources | grep 'default' | awk '{print $1}') toggle
 bindsym XF86AudioMute exec pulsemixer --toggle-mute
 bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec backlight -f /dev/backlight/backlight0 decr 5
+bindsym XF86MonBrightnessUp exec backlight -f /dev/backlight/backlight0 incr 5
 
 input "type:keyboard" {
   repeat_delay 300
