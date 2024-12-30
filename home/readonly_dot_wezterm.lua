@@ -51,5 +51,4 @@ return {
       "#ebdbb2", -- Bright White
     }
   }
-
 }
