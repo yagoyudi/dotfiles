@@ -35,6 +35,7 @@ return {
         lua = { 'stylua' },
         go = { 'gofmt', 'goimports' },
         nix = { 'alejandra' },
+        terraform = { 'terraform fmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
