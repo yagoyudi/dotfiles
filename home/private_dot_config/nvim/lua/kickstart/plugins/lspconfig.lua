@@ -179,6 +179,7 @@ return {
       local servers = {
         -- clangd = {},
         gopls = {},
+        terraformls = {},
         -- lua_ls = {},
         -- pyright = {},
         -- rust_analyzer = {},
