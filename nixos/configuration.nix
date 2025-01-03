@@ -141,6 +141,7 @@
     unzip
     xz
     zip
+    unzip
     zstd
 
     # CLI
