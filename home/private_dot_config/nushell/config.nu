@@ -2,6 +2,8 @@ $env.config.buffer_editor = "nvim"
 $env.config.edit_mode = "vi"
 $env.config.show_banner = false
 
+$env.EDITOR = "nvim"
+
 alias k = kubectl
 alias vi = nvim
 alias dot = chezmoi
