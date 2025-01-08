@@ -3,7 +3,7 @@ $env.config.edit_mode = "vi"
 $env.config.show_banner = false
 
 $env.EDITOR = "nvim"
-$env.PASSWROD_STORE_DIR = "$env.HOME/github.com/yagoyudi/pass"
+$env.PASSWORD_STORE_DIR = "$env.HOME/github.com/yagoyudi/pass"
 
 alias k = kubectl
 alias vi = nvim
