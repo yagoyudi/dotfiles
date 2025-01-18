@@ -17,7 +17,7 @@ config.max_fps = 60
 config.window_decorations = "RESIZE"
 
 --config.enable_tab_bar = false
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 config.front_end = "WebGpu"
