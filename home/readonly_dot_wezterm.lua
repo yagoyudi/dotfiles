@@ -16,10 +16,11 @@ config.animation_fps = 60
 config.max_fps = 60
 config.window_decorations = "RESIZE"
 
-config.enable_tab_bar = false
+--config.enable_tab_bar = false
+config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
---config.front_end = "WebGpu",
+config.front_end = "WebGpu"
 config.enable_wayland = true
 
 config.colors = {
@@ -49,6 +50,10 @@ config.colors = {
     "#8ec07c", -- Bright Cyan
     "#ebdbb2", -- Bright White
   }
+}
+
+config.keys = {
+  { key = 'F9', mods = 'ALT', action = wezterm.action.ShowTabNavigator },
 }
 
 return config
