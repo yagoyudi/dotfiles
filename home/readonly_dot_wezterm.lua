@@ -22,7 +22,7 @@ config.window_decorations = "RESIZE"
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
---config.front_end = "WebGpu"
+config.front_end = "WebGpu"
 config.enable_wayland = true
 
 config.colors = {
