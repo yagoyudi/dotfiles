@@ -54,12 +54,4 @@ config.colors = {
   }
 }
 
--- Key bindings
-
-config.leader = {
-  key = 'a',
-  mods = 'CTRL',
-  timeout_milliseconds = 2000
-}
-
 return config
