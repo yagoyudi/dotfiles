@@ -270,7 +270,5 @@ windowrulev2 = suppressevent maximize, class:.*
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 
 
-{{- if eq (output "hyprctl" "monitors" | "grep" "-q" "LG" "&&" "echo" "true" "||" "echo" "false") "true" -}}
-workspace = 1, monitor:desc:LG Electronics LG HDR WFHD 0x0000CA9D, default:true
-workspace = 6, monitor:desc:AU Optronics 0xDA91, default:true
-{{- end }}
+#workspace = 1, monitor:desc:LG Electronics LG HDR WFHD 0x0000CA9D, default:true
+#workspace = 6, monitor:desc:AU Optronics 0xDA91, default:true
