@@ -99,11 +99,10 @@ mode "resize" {
 }
 
 bar {
-  font pango:monospace 8.000000
   swaybar_command echo 'no bar, btw'
 }
 
-exec wezterm
+exec wezterm start tmux
 exec firefox
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
@@ -111,5 +110,5 @@ exec mako &
 workspace 1 output DP-1
 workspace 5 output eDP-1
 
-assign [app_id="org.pwmt.zathura"] workspace 10
+assign [app_id="org.pwmt.zathura"] workspace 9
 assign [app_id="firefox"] workspace 10
