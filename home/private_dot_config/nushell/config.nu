@@ -9,3 +9,7 @@ alias ls = exa
 alias cat = bat
 
 use ~/.cache/starship/init.nu
+
+if (tty | str trim) == "/dev/tty1" {
+    exec sway
+}
