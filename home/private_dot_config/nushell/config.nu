@@ -5,10 +5,7 @@ $env.config.show_banner = false
 alias k = kubectl
 alias vi = nvim
 alias dot = chezmoi
-
-def battery [] {
-  let capacity = (cat /sys/class/power_supply/BAT1/capacity | str trim)
-  echo $"($capacity)%"
-}
+alias ls = exa
+alias cat = bat
 
 use ~/.cache/starship/init.nu
