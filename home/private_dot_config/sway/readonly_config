@@ -110,5 +110,4 @@ exec mako &
 workspace 1 output DP-1
 workspace 10 output DP-1
 
-assign [app_id="org.pwmt.zathura"] workspace __i3_scratch
 assign [app_id="firefox"] workspace 10
