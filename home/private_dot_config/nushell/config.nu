@@ -7,6 +7,7 @@ alias vi = nvim
 alias dot = chezmoi
 alias ls = exa
 alias cat = bat
+alias nix-shell = nix-shell --run nu
 
 use ~/.cache/starship/init.nu
 
