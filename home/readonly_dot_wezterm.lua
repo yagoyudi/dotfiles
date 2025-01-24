@@ -19,6 +19,7 @@ config.window_decorations = "RESIZE"
 --config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
+config.hide_mouse_cursor_when_typing = false
 
 config.front_end = "WebGpu"
 config.enable_wayland = true
