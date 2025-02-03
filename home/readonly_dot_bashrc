@@ -13,8 +13,6 @@ alias battery="echo $(cat /sys/class/power_supply/BAT1/capacity)%"
 export PATH="$PATH:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin"
 export EDITOR="nvim"
 export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass";
-export KUBECONFIG="$HOME/homelab/kubeconfig"
-export TALOSCONFIG="$HOME/homelab/z/talosconfig.yaml"
 export NIXOS_CONFIG="$HOME/.local/share/chezmoi/nixos"
 export NIXPKGS_ALLOW_UNFREE=1
 export NIX_PATH=nixos-config=$HOME/.local/share/chezmoi/nixos/configuration.nix
