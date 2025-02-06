@@ -111,3 +111,4 @@ workspace 1 output DP-1
 workspace 10 output DP-1
 
 assign [app_id="firefox"] workspace 10
+assign [app_id="zen"] workspace 10
