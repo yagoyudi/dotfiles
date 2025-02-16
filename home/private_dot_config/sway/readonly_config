@@ -95,7 +95,7 @@ mode "passthrough" {
 }
 
 mode "resize" {
-  bindsym Mod1+r mode resize
+  bindsym Mod1+r mode default
 }
 
 bar {
