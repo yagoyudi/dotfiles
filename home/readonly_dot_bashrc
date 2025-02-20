@@ -17,5 +17,6 @@ export NIXOS_CONFIG="$HOME/.local/share/chezmoi/nixos"
 export NIXPKGS_ALLOW_UNFREE=1
 export NIX_PATH=nixos-config=$HOME/.local/share/chezmoi/nixos/configuration.nix
 export TZ="America/Sao_Paulo"
+export TALOSCONFIG="$HOME/yx/talosconfig"
 
 eval "$(starship init bash)"
