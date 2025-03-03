@@ -108,6 +108,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec mako &
 
 workspace 1 output DP-1
+workspace 2 output DP-1
 workspace 10 output DP-1
 
 assign [app_id="qutebrowser"] workspace 10
