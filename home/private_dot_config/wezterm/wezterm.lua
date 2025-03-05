@@ -61,7 +61,7 @@ config.keys = {
   { key = '-', mods = "LEADER", action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = '=', mods = "LEADER", action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = 'm', mods = 'LEADER', action = wezterm.action.TogglePaneZoomState },
-  { key = 'Enter', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
+  { key = '[', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
   { key = "c", mods = "LEADER", action = wezterm.action{SpawnTab="CurrentPaneDomain"} },
   { key = "h", mods = "LEADER", action=wezterm.action{ActivatePaneDirection="Left"}},
   { key = "j", mods = "LEADER", action=wezterm.action{ActivatePaneDirection="Down"}},

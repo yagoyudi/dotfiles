@@ -3,11 +3,9 @@ local module = {}
 
 local function project_dirs()
   return {
-    '~/Projects/mailgrip',
-    '~/Projects/alexplescan.com',
-    '~/Projects/wezterm_love_letters',
-    -- ... keep going, list all your projects
-    -- (or don't if you value your time. we'll improve on this soon)
+    '~/github.com/yagoyudi/dotfiles',
+    '~/gitlab.c3sl.ufpr.br',
+    '~/gitlab.com',
   }
 end
 
