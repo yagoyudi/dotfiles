@@ -79,8 +79,8 @@ config.keys = {
   {
     key = "c",
     mods = "LEADER",
-    action = wezterm.action.SpawnTab { domain = 'CurrentPaneDomain' }
-  }
+    action = wezterm.action{SpawnTab="CurrentPaneDomain"}
+  },
 }
 
 return config
