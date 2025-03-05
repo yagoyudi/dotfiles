@@ -53,4 +53,34 @@ config.colors = {
   }
 }
 
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.keys = {
+  -- splitting
+  {
+    mods   = "LEADER",
+    key    = "-",
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }
+  },
+  {
+    mods   = "LEADER",
+    key    = "=",
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
+  },
+  {
+    mods = 'LEADER',
+    key = 'm',
+    action = wezterm.action.TogglePaneZoomState
+  },
+  {
+    key = 'Enter',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateCopyMode
+  },
+  {
+    key = "c",
+    mods = "LEADER",
+    action = wezterm.action.SpawnTab { domain = 'CurrentPaneDomain' }
+  }
+}
+
 return config
