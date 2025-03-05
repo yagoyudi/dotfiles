@@ -92,7 +92,6 @@ config.keys = {
   { key = "L", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Right", 5}}},
   { key = "d", mods = "LEADER",       action=wezterm.action{CloseCurrentPane={confirm=true}}},
   { key = 'w', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
-  { key = 'l', mods = 'LEADER', action = wezterm.action.ShowLauncher },
 }
 
 return config
