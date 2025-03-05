@@ -1,239 +1,203 @@
+{ config, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-    ./fonts.nix
-    ./man-pages.nix
-    ./xdg.nix
-    ./services.nix
-    ./virtualisation.nix
-  ];
+	imports = [
+		./hardware-configuration.nix
+	];
 
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
+	boot = {
+		loader = {
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		};
+		initrd.luks.devices."luks-50927432-5e4d-4527-a574-5beee22cc209".device = "/dev/disk/by-uuid/50927432-5e4d-4527-a574-5beee22cc209";
+	};
 
-  networking = {
-    hostName = "swift3";
-    useDHCP = lib.mkDefault true;
-    extraHosts = ''
-    '';
-    networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      allowPing = false;
-      allowedTCPPorts = [
-      ];
-      allowedUDPPorts = [
-      ];
-      connectionTrackingModules = [
-      ];
-    };
-  };
+	nix = {
+		gc = {
+			automatic = true;
+			dates = "weekly";
+		};
+	};
 
-  users.users = {
-    yf = {
-      isNormalUser = true;
-      extraGroups = [
-        "wheel"
-        "docker"
-        "audio"
-        "video"
-        "networkmanager"
-        "wireshark"
-        "libvirtd"
-      ];
-    };
-  };
+	networking = {
+		hostName = "swift3";
+		networkmanager.enable = true;
+		nameservers = [
+			"1.1.1.1"
+			"8.8.8.8"
+		];
+	};
 
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+	time.timeZone = "America/Sao_Paulo";
 
-    graphics = {
-      enable = true;
-    };
-  };
+	i18n = {
+		defaultLocale = "en_US.UTF-8";
 
-  programs = {
-    #virt-manager.enable = true;
-    #wireshark.enable = true;
-  };
+		extraLocaleSettings = {
+			LC_ADDRESS = "pt_BR.UTF-8";
+			LC_IDENTIFICATION = "pt_BR.UTF-8";
+			LC_MEASUREMENT = "pt_BR.UTF-8";
+			LC_MONETARY = "pt_BR.UTF-8";
+			LC_NAME = "pt_BR.UTF-8";
+			LC_NUMERIC = "pt_BR.UTF-8";
+			LC_PAPER = "pt_BR.UTF-8";
+			LC_TELEPHONE = "pt_BR.UTF-8";
+			LC_TIME = "pt_BR.UTF-8";
+		};
+	};
 
-  environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
+	console.keyMap = "br-abnt2";
 
-    # prompt
-    starship
+	security = {
+		rtkit.enable = true;
 
-    # office suite
-    libreoffice
+		pam = {
+			services.swaylock = {};
+		};
+		
+		sudo.wheelNeedsPassword = false;
+	};
 
-    # c
-    gcc
-    gnumake
+	hardware = {
+		bluetooth = {
+			enable = true;
+			powerOnBoot = true;
+		};
+		pulseaudio.enable = false;
+		graphics.enable = true;
+	};
 
-    # go
-    go
-    gopls # go lsp
-    gotools # godoc, etc...
-    go-migrate # sql migrations
-    mage # make, but in go
+	users.users.yy = {
+		isNormalUser = true;
+		description = "yy";
+		shell = pkgs.bash;
+		extraGroups = [
+			"networkmanager"
+			"wheel"
+			"docker"
+		];
+		packages = with pkgs; [
+			neovim
+			gnupg
+			zathura
+			wezterm
+			gh
+			chezmoi
+			tmux
+			gopass
+			bat
+			eza
+			starship
+			go
+			gotools
+			mage
+			glow
+			gcc
+			tree
+			lua
+			zig
+			firefox
+			qutebrowser
+			pulsemixer
+			brightnessctl
+			grim
+			slurp
+			speedtest-go
+			talosctl
+			kubectl
+			kubernetes-helm
+			k9s
+			argocd
+			fluxcd
+			brightnessctl
+			tea
+			cheat
+			libreoffice
+			yt-dlp
+			# Do NOT install cilium here, use the binary at $HOME/.local/bin
+			# cilium-cli
+		];
+	};
 
-    # zig
-    zig
+	fonts = {
+		packages = with pkgs; [
+			fira-code
+			fira-mono
+			fira-sans
+			fira-code-symbols
+			twitter-color-emoji
+		];
+		fontconfig = {
+			defaultFonts = {
+				monospace = ["Fira Mono" "Source Code Pro"];
+				serif = ["Fira Serif" "Source Serif Pro"];
+				sansSerif = ["Fira Sans" "Source Sans Pro"];
+				emoji = ["Twitter Color Emoji"];
+			};
+		};
+	};
 
-    # nix
-    nil # nix lsp
+	services = {
+		pipewire = {
+			enable = true;
+			alsa.enable = true;
+			alsa.support32Bit = true;
+			pulse.enable = true;
+		};
 
-    # md
-    marksman
+		tailscale = {
+			enable = true;
+		};
+	};
 
-    # java
-    jre8
-    jdk8
-    maven
+	environment.systemPackages = with pkgs; [
+		vim
+		git
+		wl-clipboard
+		xdg-desktop-portal-wlr
 
-    # python
-    python3Full
+		sway
+		swaylock
 
-    # rust
-    cargo
-    rustc
+		wayland
+		wl-clip-persist
+		wl-clipboard
+		wf-recorder # record screen
+		wlprop # xprop clone for wlroots based compositors
+		waypipe
 
-    # lua
-    lua
+		imv
+		mpv
+		mako
+		libnotify
 
-    # js
-    nodejs_23
+		traceroute
+		nmap
+	];
 
-    # k8s
-    kubectl
-    kubernetes-helm
-    talosctl
+	virtualisation = {
+		docker = {
+			enable = true;
+		};
+	};
 
-    # media
-    ffmpeg # convert video
-    pulsemixer # audio volume
-    mpv # video player
-    imv # image viewer
+	xdg.portal = {
+		enable = true;
+		configPackages = with pkgs; [
+			xdg-desktop-portal-wlr
+		];
+		extraPortals = with pkgs; [
+			xdg-desktop-portal-wlr
+		];
+	};
 
-    # archive
-    atool
-    bzip2
-    gzip
-    libarchive
-    lz4
-    lzip
-    lzo
-    lzop
-    p7zip
-    rzip
-    unzip
-    xz
-    zip
-    unzip
-    zstd
-
-    # CLI
-    tree # view in files tree structure
-    grim # screenshot
-    slurp # select area
-    nix-prefetch-github
-    brightnessctl # control brightness
-    speedtest-go # test network speed
-    nmap # scan network
-    jq # parse json
-    gnupg
-    pinentry
-    cmake
-    libtool
-    pandoc
-    tmux
-    fish
-    w3m
-    ripgrep
-    eza
-    bat
-    gh
-    git
-    gopass
-    gopass-jsonapi
-    chezmoi
-    podman
-    zathura
-
-    wezterm
-
-    wireshark
-
-    mako
-
-    # WM
-    dwl
-    river
-    sway
-
-    firefox
-
-    # text editor
-    vim-full
-    neovim
-    emacs
-
-    rofi
-
-    swaykbdd # per-window keyboard layout for sway
-    wayland-utils # wayland utilities (wayland-info)
-    wl-clip-persist # keep wayland clipboard even after programs close
-    wl-clipboard # command-line copy/paste utilities
-    wf-recorder # record screen
-    wlprop # xprop clone for wlroots based compositors
-    wvkbd # on-screen keyboard for wlroots
-    waypipe
-    swaylock
-
-    qemu
-  ];
-
-  time.timeZone = "America/Sao_Paulo";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "pt_BR.UTF-8";
-      LC_IDENTIFICATION = "pt_BR.UTF-8";
-      LC_MEASUREMENT = "pt_BR.UTF-8";
-      LC_MONETARY = "pt_BR.UTF-8";
-      LC_NAME = "pt_BR.UTF-8";
-      LC_NUMERIC = "pt_BR.UTF-8";
-      LC_PAPER = "pt_BR.UTF-8";
-      LC_TELEPHONE = "pt_BR.UTF-8";
-      LC_TIME = "pt_BR.UTF-8";
-    };
-  };
-
-  console.keyMap = "br-abnt2";
-
-  security = {
-    pam.services.swaylock = {};
-    polkit.enable = true;
-    rtkit.enable = true;
-    sudo = {
-      enable = true;
-      wheelNeedsPassword = false;
-    };
-  };
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "24.11";
+	nixpkgs.config.allowUnfree = true;
+	
+	# This value determines the NixOS release from which the default
+	# settings for stateful data, like file locations and database versions
+	# on your system were taken. It‘s perfectly fine and recommended to leave
+	# this value at the release version of the first install of this system.
+	# Before changing this value read the documentation for this option
+	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+	system.stateVersion = "24.11"; # Did you read the comment?
 }
