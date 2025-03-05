@@ -2,7 +2,15 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local projects = require 'projects'
 
-wezterm.plugin.require('https://github.com/yriveiro/wezterm-tabs').apply_to_config(config)
+wezterm.plugin.require('https://github.com/yriveiro/wezterm-tabs').apply_to_config(
+  config,
+  {
+    tabs = {
+      tab_bar_at_bottom = false,
+      hide_tab_bar_if_only_one_tab = false,
+    },
+  }
+)
 
 config.font_size = 11
 config.font = wezterm.font("Fira Code")
