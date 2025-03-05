@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+wezterm.plugin.require('https://github.com/yriveiro/wezterm-tabs').apply_to_config(config)
+
 config.font_size = 11
 config.font = wezterm.font("Fira Code")
 
@@ -55,32 +57,22 @@ config.colors = {
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
-  -- splitting
-  {
-    mods   = "LEADER",
-    key    = "-",
-    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }
-  },
-  {
-    mods   = "LEADER",
-    key    = "=",
-    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
-  },
-  {
-    mods = 'LEADER',
-    key = 'm',
-    action = wezterm.action.TogglePaneZoomState
-  },
-  {
-    key = 'Enter',
-    mods = 'LEADER',
-    action = wezterm.action.ActivateCopyMode
-  },
-  {
-    key = "c",
-    mods = "LEADER",
-    action = wezterm.action{SpawnTab="CurrentPaneDomain"}
-  },
+  { key = '-', mods = "LEADER", action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = '=', mods = "LEADER", action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = 'm', mods = 'LEADER', action = wezterm.action.TogglePaneZoomState },
+  { key = 'Enter', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
+  { key = "c", mods = "LEADER", action = wezterm.action{SpawnTab="CurrentPaneDomain"} },
+  { key = "h", mods = "LEADER", action=wezterm.action{ActivatePaneDirection="Left"}},
+  { key = "j", mods = "LEADER", action=wezterm.action{ActivatePaneDirection="Down"}},
+  { key = "k", mods = "LEADER", action=wezterm.action{ActivatePaneDirection="Up"}},
+  { key = "l", mods = "LEADER", action=wezterm.action{ActivatePaneDirection="Right"}},
+  { key = "H", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Left", 5}}},
+  { key = "J", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Down", 5}}},
+  { key = "K", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Up", 5}}},
+  { key = "L", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Right", 5}}},
+  { key = "d", mods = "LEADER", action=wezterm.action{CloseCurrentPane={confirm=true}}},
+  { key = 'w', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
+  { key = 'l', mods = 'LEADER', action = wezterm.action.ShowLauncher },
 }
 
 return config
