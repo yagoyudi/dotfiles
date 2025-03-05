@@ -2,16 +2,6 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local projects = require 'projects'
 
-wezterm.plugin.require('https://github.com/yriveiro/wezterm-tabs').apply_to_config(
-  config,
-  {
-    tabs = {
-      tab_bar_at_bottom = false,
-      hide_tab_bar_if_only_one_tab = false,
-    },
-  }
-)
-
 config.font_size = 11
 config.font = wezterm.font("Fira Code")
 
@@ -27,10 +17,10 @@ config.animation_fps = 60
 config.max_fps = 60
 config.window_decorations = "RESIZE"
 
---config.enable_tab_bar = false
+config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
-config.hide_mouse_cursor_when_typing = false
+config.hide_tab_bar_if_only_one_tab = false
+config.hide_mouse_cursor_when_typing = true
 
 config.front_end = "WebGpu"
 config.enable_wayland = true

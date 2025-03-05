@@ -102,7 +102,7 @@ bar {
   swaybar_command echo 'no bar, btw'
 }
 
-exec swaymsg "workspace 1; exec wezterm start tmux"
+exec swaymsg "workspace 1; exec wezterm start --always-new-process
 exec qutebrowser
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
@@ -112,4 +112,3 @@ workspace 2 output DP-1
 workspace 10 output DP-1
 
 assign [app_id="qutebrowser"] workspace 10
-assign [app_id="zen"] workspace 10
