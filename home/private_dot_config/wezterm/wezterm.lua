@@ -52,25 +52,6 @@ config.colors = {
     "#8ec07c", -- Bright Cyan
     "#ebdbb2", -- Bright White
   }
-
-  tab_bar = {
-    background = "#101216",
-
-    active_tab = {
-      bg_color = "#f7768e",
-      fg_color = "black",
-    },
-
-    inactive_tab = {
-      bg_color = "#101216",
-      fg_color = "#808080",
-    },
-
-    new_tab = {
-      bg_color = "#101216",
-      fg_color = "#808080",
-    },
-  },
 }
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
