@@ -17,10 +17,11 @@ config.animation_fps = 60
 config.max_fps = 60
 config.window_decorations = "RESIZE"
 
-config.enable_tab_bar = false
+--config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
 config.hide_mouse_cursor_when_typing = true
+config.tab_bar_at_bottom = true
 
 config.front_end = "WebGpu"
 config.enable_wayland = true
@@ -52,6 +53,25 @@ config.colors = {
     "#8ec07c", -- Bright Cyan
     "#ebdbb2", -- Bright White
   }
+
+  tab_bar = {
+    background = "#101216",
+
+    active_tab = {
+      bg_color = "#f7768e",
+      fg_color = "black",
+    },
+
+    inactive_tab = {
+      bg_color = "#101216",
+      fg_color = "#808080",
+    },
+
+    new_tab = {
+      bg_color = "#101216",
+      fg_color = "#808080",
+    },
+  },
 }
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
