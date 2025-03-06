@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local projects = require 'projects'
 
 config.font_size = 11
 config.font = wezterm.font("Fira Code")
@@ -90,9 +89,6 @@ config.keys = {
   { key = "K", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Up", 5}}},
   { key = "L", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Right", 5}}},
   { key = "d", mods = "LEADER", action=wezterm.action{CloseCurrentPane={confirm=true}}},
-  --{ key = 'w', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
-  { key = 'p', mods = 'LEADER', action = projects.choose_project() },
-  { key = 'f', mods = 'LEADER', action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' } },
   {
     key = "w",
     mods = "LEADER",
