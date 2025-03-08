@@ -1,0 +1,51 @@
+---
+tags: [ k8s ]
+---
+
+alias k=kubectl
+
+# To get available namespaces:
+k get ns
+
+# To get available api resources:
+k api-resources
+
+# To create a namespace called 'teste':
+k create ns teste
+
+# To get the yaml of an object:
+k get ns teste --dry-run -oyaml`
+
+# To create a nginx pod (image from DockerHub):
+k run --image nginx nginx
+
+# To create a temporary nginx pod with sh running:
+k run --image alpine --rm -it demo sh
+
+# To open an sh shell inside a pod:
+k exec -it nginx sh
+
+# To delete a pod:
+k delete po nginx
+
+# To get all pods:
+k get po -A
+
+# To get all pods with aditional info:
+k get po -Aowide
+
+# To apply a manifest:
+k apply -f nginx-pod.yaml
+
+# To list a pod's labels:
+k get po --show-labels
+
+# To get a pod logs:
+k logs po nginx
+
+# To get a pod description:
+k describe po nginx
+
+# To use monitor pods:
+k get po -w
+
