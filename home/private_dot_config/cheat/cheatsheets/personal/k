@@ -1,0 +1,71 @@
+---
+tags: [ k8s ]
+---
+
+alias k=kubectl
+
+# To get available namespaces:
+k get ns
+
+# To get available api resources:
+k api-resources
+
+# To create a namespace called 'teste':
+k create ns teste
+
+# To get the yaml of an object:
+k get ns teste --dry-run -oyaml`
+
+# To create a nginx pod (image from DockerHub):
+k run --image nginx nginx
+
+# To create a temporary nginx pod with sh running:
+k run --image alpine --rm -it demo sh
+
+# To open an sh shell inside a pod:
+k exec -it nginx sh
+
+# To delete a pod:
+k delete po nginx
+
+# To get all [resource]:
+k get [resource] -A
+
+# To get all [resource] with aditional info:
+k get [resource] -Aowide
+
+# To apply a manifest:
+k apply -f nginx-pod.yaml
+
+# To list a pod's labels:
+k get po --show-labels
+
+# To get a pod logs:
+k logs po nginx
+
+# To get the logs of a 'waitfordns' container inside 'nginx-cd' pod:
+k logs nginx-cd -c waitfordns
+
+# To get a pod description:
+k describe po nginx
+
+# To use monitor pods:
+k get po -w
+
+# To create a deployment:
+k create deploy --image nginx nginx
+
+# To create replicas:
+k scale deploy nginx --replicas 10
+
+# To edit a resource's manifest:
+k edit deploy nginx
+
+# To create a Service:
+k expose deploy webserver --port 80 --target-port 80
+
+# To get the EndPoints behind a Service:
+k get ep webserver
+
+# To get pods based on the label:
+k get po -l k8s-app=kube-dns -n kube-system
