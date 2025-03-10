@@ -19,4 +19,8 @@ export NIX_PATH=nixos-config=$HOME/.local/share/chezmoi/nixos/configuration.nix
 export TZ="America/Sao_Paulo"
 export TALOSCONFIG="$HOME/yx/talosconfig"
 
+source <(kubectl completion bash)
+source <(cheat completion bash)
+source <(chezmoi completion bash)
+
 eval "$(starship init bash)"
