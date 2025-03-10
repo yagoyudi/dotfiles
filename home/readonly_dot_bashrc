@@ -9,7 +9,6 @@ alias k="kubectl"
 alias vi="nvim"
 alias dot="chezmoi"
 alias battery="echo $(cat /sys/class/power_supply/BAT1/capacity)%"
-alias cheat="cheat -c"
 
 export PATH="$PATH:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin"
 export EDITOR="nvim"
