@@ -1,0 +1,22 @@
+---
+syntax: bash
+tags: [ go, pass ]
+---
+
+# To copy a password in the clipboard:
+gopass -c [secret]
+
+# To remove a secret:
+gopas rm [secret]
+
+# To enter gopass built-in shell:
+gopass
+
+# To copy a secret from a location to another:
+gopass cp [from] [to]
+
+# To delete a directory:
+gopass rm -r [dir]
+
+# To sync local repo with remote:
+gopass sync
