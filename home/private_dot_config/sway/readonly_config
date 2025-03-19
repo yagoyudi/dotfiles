@@ -66,7 +66,6 @@ bindsym Mod1+j focus down
 bindsym Mod1+k focus up
 bindsym Mod1+l focus right
 bindsym Mod1+minus scratchpad show
-bindsym Mod1+p exec rofi-pass
 bindsym Mod1+r mode resize
 bindsym Mod1+s layout stacking
 bindsym Mod1+space focus mode_toggle
