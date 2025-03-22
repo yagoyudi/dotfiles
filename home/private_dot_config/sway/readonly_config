@@ -50,7 +50,6 @@ bindsym Mod1+Shift+h move left
 bindsym Mod1+Shift+j move down
 bindsym Mod1+Shift+k move up
 bindsym Mod1+Shift+l move right
-bindsym Mod1+Shift+m output "eDP-1" toggle
 bindsym Mod1+Shift+minus move scratchpad
 bindsym Mod1+Shift+p mode passthrough
 bindsym Mod1+Shift+q kill
@@ -105,9 +104,20 @@ exec wezterm start --always-new-process
 exec qutebrowser
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 
-workspace 1 output DP-1
-workspace 2 output DP-1
+
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 9 output DP-1
 workspace 10 output DP-1
+
+output HDMI-A-1 pos 0 0
+output DP-1 transform 90
+output DP-1 pos 3840 0
 
 assign [app_id="qutebrowser"] workspace 10
