@@ -10,7 +10,6 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-# Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Alt+Shift Return spawn wezterm
 
 riverctl map normal Alt D spawn 'rofi -show run'
@@ -143,9 +142,8 @@ do
 
     # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
     riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
-		riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
-
-		riverctl map $mode None Print spawn 'slurp -d | grim -g - - | wl-copy'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+    riverctl map $mode None Print spawn 'slurp -d | grim -g - - | wl-copy'
 done
 
 # Set background and border color
