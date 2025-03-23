@@ -1,19 +1,9 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
-
 riverctl map normal Alt+Shift Return spawn wezterm
-
-riverctl map normal Alt D spawn 'rofi -show run'
-riverctl map normal Alt P spawn 'rofi-pass'
 
 # Super+Q to close the focused view
 riverctl map normal Alt+Shift Q close
@@ -100,7 +90,7 @@ riverctl map normal Alt 0 set-focused-tags $all_tags
 riverctl map normal Alt+Shift 0 set-view-tags $all_tags
 
 # Super+Space to toggle float
-riverctl map normal Alt Space toggle-float
+riverctl map normal Alt+Shift Space toggle-float
 
 # Super+F to toggle fullscreen
 riverctl map normal Alt F toggle-fullscreen
@@ -111,15 +101,17 @@ riverctl map normal Alt Right send-layout-cmd rivertile "main-location right"
 riverctl map normal Alt Down  send-layout-cmd rivertile "main-location bottom"
 riverctl map normal Alt Left  send-layout-cmd rivertile "main-location left"
 
+
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
 riverctl declare-mode passthrough
 
 # Super+F11 to enter passthrough mode
-riverctl map normal Alt F11 enter-mode passthrough
+riverctl map normal Alt+Shift P enter-mode passthrough
 
 # Super+F11 to return to normal mode
-riverctl map passthrough Alt F11 enter-mode normal
+riverctl map passthrough Alt+Shift P enter-mode normal
+
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
@@ -146,9 +138,10 @@ do
     riverctl map $mode None Print spawn 'slurp -d | grim -g - - | wl-copy'
 done
 
+
 # Set background and border color
 riverctl background-color 0x002b36
-riverctl border-color-focused 0x93a1a1
+riverctl border-color-focused 0xff0000
 riverctl border-color-unfocused 0x586e75
 
 # Set keyboard repeat rate
