@@ -162,3 +162,4 @@ riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl default-layout rivertile
 rivertile -view-padding 2 -outer-padding 2 &
 
+wlr-randr --output DP-1 --transform 270
