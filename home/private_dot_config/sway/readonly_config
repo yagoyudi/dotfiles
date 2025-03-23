@@ -112,6 +112,7 @@ exec swayidle -w \
 
 workspace 1 output HDMI-A-1
 workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
 workspace 9 output DP-1
 workspace 10 output DP-1
 
