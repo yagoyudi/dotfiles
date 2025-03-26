@@ -16,6 +16,7 @@ client.urgent #2f343a #900000 #ffffff #900000 #900000
 client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 client.background #ffffff
 
+set $term wezterm
 bindsym Mod1+0 workspace number 10
 bindsym Mod1+1 workspace number 1
 bindsym Mod1+2 workspace number 2
@@ -28,7 +29,7 @@ bindsym Mod1+8 workspace number 8
 bindsym Mod1+9 workspace number 9
 bindsym Mod1+Down focus down
 bindsym Mod1+Left focus left
-bindsym Mod1+Return exec wezterm
+bindsym Mod1+Return exec $term
 bindsym Mod1+Right focus right
 bindsym Mod1+Shift+0 move container to workspace number 10
 bindsym Mod1+Shift+1 move container to workspace number 1
@@ -57,7 +58,6 @@ bindsym Mod1+Shift+space floating toggle
 bindsym Mod1+Up focus up
 bindsym Mod1+a focus parent
 bindsym Mod1+b splith
-bindsym Mod1+d exec rofi -show run
 bindsym Mod1+e layout toggle split
 bindsym Mod1+f fullscreen toggle
 bindsym Mod1+h focus left
@@ -97,7 +97,17 @@ mode "resize" {
 }
 
 bar {
-  swaybar_command echo 'no bar, btw'
+  position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #323232 #323232 #ffffff
+    }
 }
 
 exec wezterm start --always-new-process
@@ -121,3 +131,6 @@ output DP-1 transform 90
 output DP-1 pos 3840 0
 
 assign [app_id="qutebrowser"] workspace 10
+assign [app_id="org.wezfurlong.wezterm"] workspace 1
+
+
