@@ -134,4 +134,5 @@ output DP-1 pos 3840 0
 assign [app_id="qutebrowser"] workspace 10
 assign [app_id="org.wezfurlong.wezterm"] workspace 1
 assign [app_id="org.pwmt.zathura"] workspace 2
+assign [app_id="anki"] workspace 2
 
