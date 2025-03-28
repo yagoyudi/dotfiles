@@ -54,7 +54,7 @@ config.colors = {
   }
 }
 
-config.leader = { key = ' ', mods = 'NONE', timeout_milliseconds = 1000 }
+config.leader = { key = 'a', mods = ' ', timeout_milliseconds = 1000 }
 config.keys = {
   { key = '-', mods = "LEADER", action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = '=', mods = "LEADER", action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
