@@ -125,7 +125,7 @@ workspace 1 output HDMI-A-1
 workspace 2 output HDMI-A-1
 workspace 3 output HDMI-A-1
 workspace 9 output DP-1
-workspace 10 output DP-1
+workspace 10 output HDMI-A-1
 
 output HDMI-A-1 pos 0 0 scale 1.5
 output DP-1 transform 90
