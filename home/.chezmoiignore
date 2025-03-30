@@ -1,0 +1,14 @@
+.tmux.conf
+.vimrc
+
+.config/alacritty
+.config/dwl
+.config/fish
+.config/foot
+.config/hypr
+.config/kitty
+.config/nushell
+.config/river
+.config/rofi
+.config/rofi-pass
+
