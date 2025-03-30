@@ -1,4 +1,6 @@
-c.tabs.show = "never"
+c.tabs.show = "multiple"
+c.tabs.position = "right"
+c.tabs.width = "10%"
 
 c.auto_save.session = True
 
