@@ -15,44 +15,36 @@ alias kaa='k get all -A'
 alias kcf='k create -f'
 alias kaf='k apply -f'
 
-{{- if eq .chezmoi.hostname "swift3" -}}
+{{ if eq .chezmoi.hostname "swift3" }}
 alias ls="eza"
 alias cat="bat"
-{{- end -}}
+{{ end }}
 
 export EDITOR="nvim"
 export NIXPKGS_ALLOW_UNFREE=1
 export do="--dry-run=client -o yaml"
-
-{{- if eq .chezmoi.hostname "uiop" -}}
-
+{{ if eq .chezmoi.hostname "uiop" }}
 export PATH="$PATH:$HOME/go/bin:$HOME/.local/bin"
-
 export KUBEENV="prod"
 export KUBECONFIG="$HOME/k8s/$KUBEENV/kubeconfig"
 export TALOSCONFIG="$HOME/k8s/$KUBEENV/talosconfig"
-
-export PASSWORD_STORE_DIR="$HOME/gitlab.c3sl.ufpr.br/c3root/pass";
-#export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass";
+export PASSWORD_STORE_DIR="$HOME/gitlab.c3sl.ufpr.br/c3root/pass"
+#export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass"
 export TZ="America/Sao_Paulo"
-
-{{- end -}}
-
-{{- if eq .chezmoi.hostname "swift3" -}}
-
+{{ end }}
+{{ if eq .chezmoi.hostname "swift3" }}
 export PATH="$PATH:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin"
 export NIX_PATH=nixos-config=$HOME/.local/share/chezmoi/nixos/configuration.nix
-export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass";
+export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass"
 export TZ="America/Sao_Paulo"
-
-{{- end -}}
+{{ end }}
 
 source <(kubectl completion bash)
 complete -F __start_kubectl k
 source <(cheat completion bash)
-complete -F __start_kubectl c
+complete -F __start_cheat c
 source <(chezmoi completion bash)
-complete -F __start_kubectl dot
+complete -F __start_chezmoi dot
 source <(gopass completion bash)
 
 eval "$(starship init bash)"
