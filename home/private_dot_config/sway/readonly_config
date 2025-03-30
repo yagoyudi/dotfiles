@@ -115,14 +115,19 @@ exec swayidle -w \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
+{{ if eq .chezmoi.hostname "swift3" }}
 workspace 1 output HDMI-A-1
 workspace 2 output HDMI-A-1
 workspace 9 output HDMI-A-1
 workspace 10 output HDMI-A-1
 output HDMI-A-1 pos 0 0 scale 1.2
+{{ end }}
 
 assign [app_id="org.wezfurlong.wezterm"] workspace 1
 assign [app_id="anki"] workspace 2
+{{ if eq .chezmoi.hostname "uiop" }}
+assign [app_id="thunderbird"] workspace 2
+{{ end }}
 assign [app_id="org.pwmt.zathura"] workspace 9
 assign [app_id="qutebrowser"] workspace 10
 assign [app_id="firefox"] workspace 10
