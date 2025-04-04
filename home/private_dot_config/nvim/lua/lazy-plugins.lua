@@ -30,7 +30,7 @@ require('lazy').setup({
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/cmp',
   --require 'kickstart/plugins/tokyonight',
-  require 'kickstart/plugins/sonokai',
+  --require 'custom/plugins/sonokai',
   require 'kickstart/plugins/todo-comments',
   --require 'kickstart/plugins/mini',
   require 'kickstart/plugins/treesitter',
