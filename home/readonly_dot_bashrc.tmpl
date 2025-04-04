@@ -46,7 +46,6 @@ source <(gopass completion bash)
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
-eval "$(task ls)"
 
 # https://codeberg.org/dnkl/foot/wiki#user-content-spawning-new-terminal-instances-in-the-current-working-directory
 osc7_cwd() {
@@ -64,3 +63,5 @@ osc7_cwd() {
     printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
 PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
+
+task ls
