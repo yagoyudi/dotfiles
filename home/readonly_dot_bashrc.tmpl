@@ -5,7 +5,6 @@ alias ll="ls -l --color"
 alias grep="grep --color=auto"
 alias vi="nvim"
 alias k="kubectl"
-alias dot="chezmoi"
 alias c="cheat"
 alias kn='k config set-context --current --namespace'
 alias kcc='k config get-contexts'
@@ -43,8 +42,24 @@ complete -F __start_kubectl k
 source <(cheat completion bash)
 complete -F __start_cheat c
 source <(chezmoi completion bash)
-complete -F __start_chezmoi dot
 source <(gopass completion bash)
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
+# https://codeberg.org/dnkl/foot/wiki#user-content-spawning-new-terminal-instances-in-the-current-working-directory
+osc7_cwd() {
+    local strlen=${#PWD}
+    local encoded=""
+    local pos c o
+    for (( pos=0; pos<strlen; pos++ )); do
+        c=${PWD:$pos:1}
+        case "$c" in
+            [-/:_.!\'\(\)~[:alnum:]] ) o="${c}" ;;
+            * ) printf -v o '%%%02X' "'${c}" ;;
+        esac
+        encoded+="${o}"
+    done
+    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+}
+PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
