@@ -56,6 +56,17 @@ return {
     -- Go
     lspconfig.gopls.setup {
       capabilities = capabilities,
+      settings = {
+        gopls = {
+          gofumpt = true,
+          staticcheck = true,
+          analyses ={
+            unusedparams = true,
+          },
+          completeUnimported = true,
+          usePlaceholders = true,
+        },
+      },
     }
 
     -- Python
