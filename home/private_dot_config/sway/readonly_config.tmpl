@@ -71,10 +71,10 @@ bindsym Mod1+s layout stacking
 bindsym Mod1+space focus mode_toggle
 bindsym Mod1+w layout tabbed
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
-bindsym Mod1+u exec pulsemixer --change-volume -5
+bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
 bindsym XF86AudioMicMute exec pulsemixer --set-mute $(pulsemixer --list-sources | grep 'default' | awk '{print $1}') toggle
 bindsym XF86AudioMute exec pulsemixer --toggle-mute
-bindsym Mod1+i exec pulsemixer --change-volume +5
+bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
 bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
 
