@@ -51,6 +51,7 @@ source <(cheat completion bash)
 complete -F __start_cheat c
 source <(chezmoi completion bash)
 source <(gopass completion bash)
+complete -F _command doas
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
