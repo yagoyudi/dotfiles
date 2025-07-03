@@ -1,8 +1,10 @@
-# ~/.config/starship.toml
-
 [time]
 disabled = false
 format = '[ $time ]($style)'
 
 [kubernetes]
+{{ if eq .chezmoi.hostname "y" }}
+disabled = false
+{{ else }}
 disabled = true
+{{ end }}
