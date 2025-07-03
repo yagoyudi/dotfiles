@@ -1,9 +1,11 @@
-# github.com/yagoyudi/dotfiles
-
 Install with:
 
-    chezmoi init --apply yagoyudi
+```sh
+chezmoi init --apply yagoyudi
+```
 
-If you don't have chezmoi installed, you can:
+If you don't have chezmoi installed:
 
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply yagoyudi
+```sh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply yagoyudi
+```
