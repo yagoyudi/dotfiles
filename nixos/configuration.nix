@@ -10,6 +10,7 @@
 			efi.canTouchEfiVariables = true;
 		};
 		initrd.luks.devices."luks-50927432-5e4d-4527-a574-5beee22cc209".device = "/dev/disk/by-uuid/50927432-5e4d-4527-a574-5beee22cc209";
+		tmp.cleanOnBoot = true;
 	};
 
 	nix = {
@@ -55,7 +56,32 @@
 			services.swaylock = {};
 		};
 		
-		sudo.wheelNeedsPassword = false;
+		sudo = {
+			enable = false;
+			wheelNeedsPassword = false;
+		};
+
+		doas = {
+			enable = true;
+			extraRules = [
+				{
+					users = [
+						"y"
+					];
+					keepEnv = true;
+					persist = true;
+				}
+			];
+		};
+	};
+
+	virtualisation = {
+		docker = {
+			enable = true;
+		};
+		containerd = {
+			enable = true;
+		};
 	};
 
 	hardware = {
@@ -67,9 +93,9 @@
 		graphics.enable = true;
 	};
 
-	users.users.yy = {
+	users.users.y = {
 		isNormalUser = true;
-		description = "yy";
+		description = "y";
 		shell = pkgs.bash;
 		extraGroups = [
 			"networkmanager"
@@ -81,39 +107,76 @@
 			gnupg
 			zathura
 			wezterm
+			foot
+			dmenu
 			gh
 			chezmoi
 			tmux
+			lua-language-server
+			clang-tools
+			opentofu
+			go-task
+			gopls
+			pyright
 			gopass
-			bat
 			eza
+			zoxide
 			starship
 			go
 			gotools
 			mage
 			glow
+			emacs
 			gcc
 			tree
 			lua
 			zig
-			firefox
+			tldr
 			qutebrowser
+			rootlesskit
+			slirp4netns
+			cni-plugins
+			runc
+			nerdctl
+			mdbook
 			pulsemixer
-			brightnessctl
+			just
 			grim
+			thunderbird
+			gnumake
+			firefox
+			yamlfmt
 			slurp
 			speedtest-go
 			talosctl
 			kubectl
+			minikube
+			podman
+			buildah
 			kubernetes-helm
 			k9s
 			argocd
 			fluxcd
 			brightnessctl
 			tea
-			cheat
+			geek-life
 			libreoffice
 			yt-dlp
+			obsidian
+			hugo
+			anki
+			sway-launcher-desktop
+			tcpdump
+			jq
+			yq
+			etcd
+			kind
+			kubecolor
+			gotop
+			gopls
+			nuclei
+			gofumpt
+			helix
 			# Do NOT install cilium here, use the binary at $HOME/.local/bin
 			# cilium-cli
 		];
@@ -143,42 +206,64 @@
 			alsa.enable = true;
 			alsa.support32Bit = true;
 			pulse.enable = true;
+			# If you want to use JACK applications, uncomment this
+			#jack.enable = true;
+
+			# use the example session manager (no others are packaged yet so this is enabled by default,
+			# no need to redefine it in your config for now)
+			#media-session.enable = true;
 		};
 
 		tailscale = {
-			enable = true;
+			enable = false;
 		};
 	};
 
-	environment.systemPackages = with pkgs; [
-		vim
-		git
-		wl-clipboard
-		xdg-desktop-portal-wlr
+	environment = {
+		systemPackages = with pkgs; [
+			neovim
+			git
+			wl-clipboard
+			xdg-desktop-portal-wlr
 
-		sway
-		swaylock
+			sway
+			river
+			swaylock
 
-		wayland
-		wl-clip-persist
-		wl-clipboard
-		wf-recorder # record screen
-		wlprop # xprop clone for wlroots based compositors
-		waypipe
+			wayland
+			wlr-randr
+			wl-clip-persist
+			wl-clipboard
+			wf-recorder # record screen
+			wlprop # xprop clone for wlroots based compositors
+			waypipe
+			wdisplays
 
-		imv
-		mpv
-		mako
-		libnotify
+			xdg-utils
 
-		traceroute
-		nmap
-	];
+			devbox
 
-	virtualisation = {
-		docker = {
-			enable = true;
+			busybox
+			dig
+
+			imv
+			mpv
+			mako
+			libnotify
+
+			traceroute
+			nmap
+			
+			man-pages
+			man-pages-posix
+		];
+		etc = {
+			"alternatives/vi".source = "${pkgs.neovim}/bin/nvim";
 		};
+	};
+
+	documentation = {
+		dev.enable = true;
 	};
 
 	xdg.portal = {
@@ -193,11 +278,16 @@
 
 	nixpkgs.config.allowUnfree = true;
 	
-	# This value determines the NixOS release from which the default
-	# settings for stateful data, like file locations and database versions
-	# on your system were taken. It‘s perfectly fine and recommended to leave
-	# this value at the release version of the first install of this system.
-	# Before changing this value read the documentation for this option
-	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "24.11"; # Did you read the comment?
+	programs = {
+		ssh.startAgent = true;
+		gnupg.agent.enable = true;
+	};
+
+	system = {
+		stateVersion = "24.11";
+		autoUpgrade = {
+			enable = true;
+			allowReboot = false;
+		};
+	};
 }
