@@ -55,7 +55,7 @@
 		pam = {
 			services.swaylock = {};
 		};
-		
+
 		sudo = {
 			enable = false;
 			wheelNeedsPassword = false;
@@ -171,7 +171,6 @@
 			kind
 			kubectl
 			kubecolor
-			kubens
 			kubectx
 			gotop
 			gopls
@@ -255,7 +254,7 @@
 
 			traceroute
 			nmap
-			
+
 			man-pages
 			man-pages-posix
 
@@ -278,7 +277,7 @@
 	};
 
 	nixpkgs.config.allowUnfree = true;
-	
+
 	programs = {
 		ssh.startAgent = true;
 		gnupg.agent.enable = true;
