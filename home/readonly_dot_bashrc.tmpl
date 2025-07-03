@@ -16,18 +16,12 @@ alias kaa='k get all -A'
 alias kcf='k create -f'
 alias kaf='k apply -f'
 alias weather="curl wttr.in"
-alias gs='git status'
-alias gp='git push'
-alias ga='git add'
-alias gc='git commit -m'
-alias gn='git checkout'
-alias gb='git branch'
-alias gd='git diff'
 
 export EDITOR="nvim"
 export NIXPKGS_ALLOW_UNFREE=1
 export do="--dry-run=client -o yaml"
-export PATH="$PATH:$HOME/go/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin"
+export GOPATH="$HOME/.local/go"
+export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin"
 export NIX_PATH=nixos-config=$HOME/.config/nixos/configuration.nix
 export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass"
 export TZ="America/Sao_Paulo"
