@@ -69,7 +69,6 @@
 						"y"
 					];
 					keepEnv = true;
-					persist = true;
 					noPass = true;
 				}
 			];
