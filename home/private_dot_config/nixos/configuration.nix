@@ -4,6 +4,7 @@
 		./hardware-configuration.nix
 	];
 
+	{{ if eq .chezmoi.hostname "swift3" }}
 	boot = {
 		loader = {
 			systemd-boot.enable = true;
@@ -12,6 +13,16 @@
 		initrd.luks.devices."luks-50927432-5e4d-4527-a574-5beee22cc209".device = "/dev/disk/by-uuid/50927432-5e4d-4527-a574-5beee22cc209";
 		tmp.cleanOnBoot = true;
 	};
+	{{ end }}
+
+	{{ if eq .chezmoi.hostname "y" }}
+	boot = {
+		loader = {
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		};
+	};
+	{{ end }}
 
 	nix = {
 		gc = {
@@ -20,6 +31,7 @@
 		};
 	};
 
+	{{ if eq .chezmoi.hostname "swift3" }}
 	networking = {
 		hostName = "swift3";
 		networkmanager.enable = true;
@@ -28,6 +40,14 @@
 			"8.8.8.8"
 		];
 	};
+	{{ end }}
+
+	{{ if eq .chezmoi.hostname "y" }}
+	networking = {
+		hostName = "y";
+		networkmanager.enable = true;
+	};
+	{{ end }}
 
 	time.timeZone = "America/Sao_Paulo";
 
@@ -84,6 +104,7 @@
 		};
 	};
 
+	{{ if eq .chezmoi.hostname "swift3" }}
 	hardware = {
 		bluetooth = {
 			enable = true;
@@ -91,6 +112,15 @@
 		};
 		graphics.enable = true;
 	};
+	{{ end }}
+
+	{{ if eq .chezmoi.hostname "y" }}
+	hardware = {
+		bluetooth = {
+			enable = false;
+		};
+	};
+	{{ end }}
 
 	users.users.y = {
 		isNormalUser = true;
@@ -200,6 +230,7 @@
 		};
 	};
 
+	{{ if eq .chezmoi.hostname "swift3" }}
 	services = {
 		pulseaudio.enable = false;
 		pipewire = {
@@ -219,6 +250,19 @@
 			enable = false;
 		};
 	};
+	{{ end }}
+
+	{{ if eq .chezmoi.hostname "y" }}
+	services = {
+		openssh = {
+			enable = true;
+			settings = {
+				PermitRootLogin = "no";
+				PasswordAuthentication = false;
+			};
+		};
+	};
+	{{ end }}
 
 	environment = {
 		systemPackages = with pkgs; [
