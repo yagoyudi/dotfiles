@@ -18,7 +18,7 @@ client.background #ffffff
 
 set $term footclient
 set $browser firefox
-set $menucmd dmenu_run -l 10 -p Run
+set $menu dmenu_run -l 10 -p Run
 
 bindsym Mod1+0 workspace number 10
 bindsym Mod1+1 workspace number 1
@@ -33,7 +33,7 @@ bindsym Mod1+9 workspace number 9
 bindsym Mod1+Down focus down
 bindsym Mod1+Left focus left
 bindsym Mod1+Return exec $term
-bindsym Mod1+d exec $menucmd
+bindsym Mod1+d exec $menu
 bindsym Mod1+Right focus right
 bindsym Mod1+Shift+0 move container to workspace number 10
 bindsym Mod1+Shift+1 move container to workspace number 1
@@ -79,40 +79,40 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
 
 input "type:keyboard" {
-  repeat_delay 300
-  repeat_rate 50
-  xkb_layout br
-  xkb_options caps:escape
+	repeat_delay 300
+	repeat_rate 50
+	xkb_layout br
+	xkb_options caps:escape
 }
 
 input "type:touchpad" {
-  tap enabled
+	tap enabled
 }
 
 mode "passthrough" {
-  bindsym Mod1+Shift+p mode default
+	bindsym Mod1+Shift+p mode default
 }
 
 mode "resize" {
-  bindsym Mod1+r mode default
-  bindsym h resize shrink width 10px
-  bindsym j resize grow height 10px
-  bindsym k resize shrink height 10px
-  bindsym l resize grow width 10px
+	bindsym Mod1+r mode default
+	bindsym h resize shrink width 10px
+	bindsym j resize grow height 10px
+	bindsym k resize shrink height 10px
+	bindsym l resize grow width 10px
 }
 
 bar {
-  position top
+	position top
 
-  # When the status_command prints a new line to stdout, swaybar updates.
-  # The default just shows the current date and time.
-  status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+	# When the status_command prints a new line to stdout, swaybar updates.
+	# The default just shows the current date and time.
+	status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
-  colors {
-      statusline #ffffff
-      background #323232
-      inactive_workspace #323232 #323232 #ffffff
-  }
+	colors {
+		statusline #ffffff
+		background #323232
+		inactive_workspace #323232 #323232 #ffffff
+	}
 }
 
 exec foot --server
@@ -120,10 +120,10 @@ exec $browser
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+	 timeout 300 'swaylock -f -c 000000' \
+	 timeout 600 'swaymsg "output * dpms off"' \
+	 resume 'swaymsg "output * dpms on"' \
+	 before-sleep 'swaylock -f -c 000000'
 
 {{ if eq .chezmoi.hostname "swift3" }}
 workspace 1 output HDMI-A-1
@@ -133,7 +133,6 @@ workspace 10 output HDMI-A-1
 output HDMI-A-1 scale 1
 {{ end }}
 
+assign [app_id="firefox"] workspace 1
+assign [app_id="obsidian"] workspace 2
 assign [app_id="org.pwmt.zathura"] workspace 9
-assign [app_id="qutebrowser"] workspace 10
-assign [app_id="firefox"] workspace 10
-
