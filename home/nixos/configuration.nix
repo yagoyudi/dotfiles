@@ -89,7 +89,6 @@
 			enable = true;
 			powerOnBoot = true;
 		};
-		pulseaudio.enable = false;
 		graphics.enable = true;
 	};
 
@@ -201,6 +200,7 @@
 	};
 
 	services = {
+		pulseaudio.enable = false;
 		pipewire = {
 			enable = true;
 			alsa.enable = true;
@@ -257,9 +257,6 @@
 			man-pages
 			man-pages-posix
 		];
-		etc = {
-			"alternatives/vi".source = "${pkgs.neovim}/bin/nvim";
-		};
 	};
 
 	documentation = {
