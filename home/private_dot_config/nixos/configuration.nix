@@ -148,11 +148,10 @@
 			slurp
 			speedtest-go
 			talosctl
-			kubectl
 			minikube
+			kubernetes-helm
 			podman
 			buildah
-			kubernetes-helm
 			k9s
 			argocd
 			fluxcd
@@ -170,7 +169,10 @@
 			yq
 			etcd
 			kind
+			kubectl
 			kubecolor
+			kubens
+			kubectx
 			gotop
 			gopls
 			nuclei
