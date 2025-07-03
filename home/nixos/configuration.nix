@@ -256,6 +256,8 @@
 			
 			man-pages
 			man-pages-posix
+
+			eza
 		];
 	};
 
