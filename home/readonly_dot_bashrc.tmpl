@@ -11,14 +11,12 @@ alias c="cheat"
 alias weather="curl wttr.in"
 
 export EDITOR="nvim"
-export NIXPKGS_ALLOW_UNFREE=1
-export do="--dry-run=client -o yaml"
 export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin"
 export NIX_PATH=nixos-config=$HOME/.config/nixos/configuration.nix
 export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass"
-export TZ="America/Sao_Paulo"
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+export TZ="America/Sao_Paulo"
 
 source <(kubectl completion bash)
 complete -F __start_kubectl k
