@@ -59,14 +59,14 @@ notebooks:
   #   'tags': tags that should be automatically applied to sheets on this path
   #   'readonly': shall user-created ('cheat -e') notes be saved here?
   - name: community
-    path: /home/y/.config/cheat/notes/community
+    path: /home/y/.config/cheat/notebooks/community
     tags: [ community ]
     readonly: true
 
   # If you have personalized notes, list them last. They will take
   # precedence over the more global notes.
   - name: personal
-    path: /home/y/.config/cheat/notes/personal
+    path: /home/y/.config/cheat/notebooks/personal
     tags: [ personal ]
     readonly: false
 
