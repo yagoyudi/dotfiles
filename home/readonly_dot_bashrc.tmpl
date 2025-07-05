@@ -7,7 +7,6 @@ alias ls="eza"
 alias grep="grep --color=auto"
 alias vi="nvim"
 alias k="kubecolor"
-alias c="cheat"
 alias weather="curl wttr.in"
 
 export EDITOR="nvim"
@@ -23,8 +22,7 @@ export NETBOX_TOKEN={{ gopassRaw "NETBOX_TOKEN" }}
 
 source <(kubectl completion bash)
 complete -F __start_kubectl k
-source <(cheat completion bash)
-complete -F __start_cheat c
+source <(note completion bash)
 source <(chezmoi completion bash)
 source <(gopass completion bash)
 complete -F _command doas
