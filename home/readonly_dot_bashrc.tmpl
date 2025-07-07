@@ -19,6 +19,7 @@ export TZ="America/Sao_Paulo"
 {{ if eq .chezmoi.hostname "y" }}
 export NETBOX_TOKEN={{ gopassRaw "NETBOX_TOKEN" }}
 {{end}}
+export GIT_PAGER="cat"
 
 source <(kubectl completion bash)
 complete -F __start_kubectl k
