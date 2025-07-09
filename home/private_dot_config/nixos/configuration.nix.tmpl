@@ -233,6 +233,7 @@
 
 	{{ if eq .chezmoi.hostname "swift3" }}
 	services = {
+		resolved.enable = false;
 		pulseaudio.enable = false;
 		pipewire = {
 			enable = true;
