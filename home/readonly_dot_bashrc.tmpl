@@ -17,21 +17,6 @@ export NIX_PATH=nixos-config=$HOME/.config/nixos/configuration.nix
 export PASSWORD_STORE_DIR="$HOME/github.com/yagoyudi/pass"
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 export TZ="America/Sao_Paulo"
-{{ if eq .chezmoi.hostname "y" }}
-alias with_netbox='
-NETBOX_TOKEN=$(gopass NETBOX_TOKEN) \
-NETBOX_URL="https://netbox.c3sl.ufpr.br"'
-
-alias with_gitlab='
-GITLAB_USERNAME=yyvf \
-GITLAB_ACCESS_TOKEN=$(gopass GITLAB_TOKEN)'
-
-alias with_netbox_gitlab='
-NETBOX_TOKEN=$(gopass NETBOX_TOKEN) \
-NETBOX_URL="https://netbox.c3sl.ufpr.br" \
-GITLAB_USERNAME=yyvf \
-GITLAB_ACCESS_TOKEN=$(gopass GITLAB_TOKEN)'
-{{end}}
 export GIT_PAGER="cat"
 
 source <(kubectl completion bash)
@@ -60,3 +45,28 @@ osc7_cwd() {
     printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
 PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
+
+with_netbox() {
+  export NETBOX_TOKEN=$(gopass NETBOX_TOKEN)
+  export NETBOX_URL="https://netbox.c3sl.ufpr.br"
+
+  if [ "$#" -gt 0 ]; then
+    "$@"
+  fi
+}
+
+with_gitlab() {
+  export GITLAB_USERNAME=yyvf
+  export GITLAB_ACCESS_TOKEN=$(gopass GITLAB_TOKEN)
+
+  if [ "$#" -gt 0 ]; then
+    "$@"
+  fi
+}
+
+with_netbox_gitlab() {
+  with_netbox
+  with_gitlab
+
+  "$@"
+}
