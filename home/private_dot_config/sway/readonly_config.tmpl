@@ -116,7 +116,6 @@ bar {
 }
 
 exec foot --server
-exec $browser
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
 exec swayidle -w \
@@ -132,7 +131,3 @@ workspace 9 output HDMI-A-1
 workspace 10 output HDMI-A-1
 output HDMI-A-1 scale 1
 {{ end }}
-
-assign [app_id="firefox"] workspace 1
-assign [app_id="obsidian"] workspace 2
-assign [app_id="org.pwmt.zathura"] workspace 9

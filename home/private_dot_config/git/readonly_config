@@ -7,3 +7,12 @@
 [user]
 	email = "yyvf@pm.me"
 	name = "yyvf"
+
+[core]
+	editor = "nvim"
+
+[diff]
+	tool = "nvim -d"
+
+[alias]
+	graph = "log --graph --oneline --decorate"
