@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s autocd
+
 export EDITOR="nvim"
 export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin"
