@@ -259,6 +259,7 @@
 
 	{{ if eq .chezmoi.hostname "y" }}
 	services = {
+		blueman.enable = true;
 		openssh = {
 			enable = true;
 			settings = {
