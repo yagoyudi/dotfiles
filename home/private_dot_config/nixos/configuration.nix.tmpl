@@ -117,7 +117,8 @@
 	{{ if eq .chezmoi.hostname "y" }}
 	hardware = {
 		bluetooth = {
-			enable = false;
+			enable = true;
+			powerOnBoot = true;
 		};
 	};
 	{{ end }}
