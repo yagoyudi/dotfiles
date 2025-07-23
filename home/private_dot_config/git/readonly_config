@@ -16,3 +16,6 @@
 
 [alias]
 	graph = "log --graph --oneline --decorate"
+
+[commit]
+	verbose = true
