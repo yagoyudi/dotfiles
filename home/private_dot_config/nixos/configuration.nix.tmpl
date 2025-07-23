@@ -97,7 +97,7 @@
 
 	virtualisation = {
 		docker = {
-			enable = false;
+			enable = true;
 		};
 		containerd = {
 			enable = true;
@@ -117,7 +117,8 @@
 	{{ if eq .chezmoi.hostname "y" }}
 	hardware = {
 		bluetooth = {
-			enable = false;
+			enable = true;
+			powerOnBoot = true;
 		};
 	};
 	{{ end }}
@@ -276,8 +277,7 @@
 			wl-clipboard
 			xdg-desktop-portal-wlr
 
-			sway
-			river
+			#sway
 			swaylock
 
 			wayland
@@ -328,6 +328,7 @@
 	nixpkgs.config.allowUnfree = true;
 
 	programs = {
+		sway.enable = true;
 		ssh.startAgent = true;
 		gnupg.agent.enable = true;
 	};

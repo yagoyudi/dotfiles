@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s autocd
+
 export EDITOR="nvim"
 export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin"
@@ -69,4 +71,8 @@ with_netbox_gitlab() {
   with_gitlab
 
   "$@"
+}
+
+cd() {
+	builtin cd "$@" && ls -F
 }
