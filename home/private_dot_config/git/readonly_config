@@ -19,3 +19,6 @@
 
 [commit]
 	verbose = true
+
+[url "ssh://git@gitlab.c3sl.ufpr.br/"]
+    insteadOf = https://gitlab.c3sl.ufpr.br/
