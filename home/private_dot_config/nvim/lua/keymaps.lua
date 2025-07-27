@@ -17,16 +17,5 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
 
----------------------------------------------------------------------------------------
-
--- See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text.
--- See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-	callback = function()
-		vim.hl.on_yank()
-	end,
-})
+-- Oil
+vim.keymap.set('n', '-', '<cmd>Oil<CR>')
