@@ -24,9 +24,12 @@ alias weather="curl wttr.in"
 
 source <(kubectl completion bash)
 complete -F __start_kubectl k
-#source <(note completion bash)
+
 source <(chezmoi completion bash)
+complete -F __start_chezmoi c
+
 source <(gopass completion bash)
+
 complete -F _command doas
 
 eval "$(starship init bash)"
