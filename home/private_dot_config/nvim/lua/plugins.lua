@@ -14,7 +14,6 @@ end
 
 local deps = require('mini.deps')
 deps.setup()
--- local deps = MiniDeps
 deps.add({ source = 'stevearc/oil.nvim' })
 deps.add({ source = 'nvim-treesitter/nvim-treesitter' })
 deps.add({ source = 'neovim/nvim-lspconfig' })
