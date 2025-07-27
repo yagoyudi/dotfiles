@@ -14,8 +14,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Pick:
-vim.keymap.set('n', '<leader>pf', ':Pick files<CR>')
-vim.keymap.set('n', '<leader>ph', ':Pick help<CR>')
+vim.keymap.set('n', '<leader>sf', ':Pick files<CR>')
+vim.keymap.set('n', '<leader>sh', ':Pick help<CR>')
 
 ---------------------------------------------------------------------------------------
 
