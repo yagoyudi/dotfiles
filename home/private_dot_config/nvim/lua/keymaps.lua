@@ -39,3 +39,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	end,
 })
 
+vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
+
