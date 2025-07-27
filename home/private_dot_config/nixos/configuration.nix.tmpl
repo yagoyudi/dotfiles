@@ -310,9 +310,6 @@
 			man-pages-posix
 
 			eza
-
-			zsh-syntax-highlighting
-			zsh-autosuggestions
 		];
 	};
 
@@ -333,7 +330,12 @@
 	nixpkgs.config.allowUnfree = true;
 
 	programs = {
-		zsh.enable = true;
+		zsh = {
+			enable = true;
+			enableCompletions = true;
+			autosuggestions.enable = true;
+			syntaxHighlighting.enable = true;
+		};
 		sway.enable = true;
 		ssh.startAgent = true;
 		gnupg.agent.enable = true;
