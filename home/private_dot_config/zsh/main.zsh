@@ -1,3 +1,5 @@
+set -o vi
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
