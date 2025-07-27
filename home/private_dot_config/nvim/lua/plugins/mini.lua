@@ -23,7 +23,11 @@ return {
 			require('mini.surround').setup()
 
 			-- File picker:
-			require('mini.pick').setup()
+			require('mini.pick').setup(
+				{
+					tool = 'rg'
+				}
+			)
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
