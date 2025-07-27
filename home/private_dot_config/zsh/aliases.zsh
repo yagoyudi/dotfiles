@@ -1,4 +1,3 @@
-#alias docker='nerdctl'
 alias sudo='doas'
 alias sudoedit='doas rnano'
 alias ls="eza"
