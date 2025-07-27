@@ -133,7 +133,6 @@
 			"docker"
 		];
 		packages = with pkgs; [
-			neovim
 			gnupg
 			zathura
 			wezterm
@@ -274,7 +273,6 @@
 
 	environment = {
 		systemPackages = with pkgs; [
-			neovim
 			git
 			wl-clipboard
 			xdg-desktop-portal-wlr
@@ -333,6 +331,10 @@
 		sway.enable = true;
 		ssh.startAgent = true;
 		gnupg.agent.enable = true;
+		neovim = {
+			enable = true;
+			package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+		};
 	};
 
 	system = {
