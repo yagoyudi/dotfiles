@@ -12,16 +12,13 @@ if not vim.loop.fs_stat(mini_path) then
 	vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
-require('mini.deps').setup({
-	path = {
-		package = path_package
-	}
-})
-
-MiniDeps.add({ source = 'stevearc/oil.nvim' })
-MiniDeps.add({ source = 'nvim-treesitter/nvim-treesitter' })
-MiniDeps.add({ source = 'neovim/nvim-lspconfig' })
-MiniDeps.add({ source = 'mfussenegger/nvim-lint' })
+local deps = require('mini.deps')
+deps.setup()
+-- local deps = MiniDeps
+deps.add({ source = 'stevearc/oil.nvim' })
+deps.add({ source = 'nvim-treesitter/nvim-treesitter' })
+deps.add({ source = 'neovim/nvim-lspconfig' })
+deps.add({ source = 'mfussenegger/nvim-lint' })
 
 -- Oil:
 local oil = require('oil')
@@ -65,7 +62,8 @@ end
 
 -- LSP:
 vim.lsp.enable({
-	"gopls",
+	'gopls',
+	'lua_ls',
 })
 
 -- Golang LSP config:
@@ -79,6 +77,19 @@ vim.lsp.config('gopls', {
 			gofumpt = true,
 		}
 	}
+})
+
+vim.lsp.config('lua_ls', {
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- Make lua_ls recognize the vim global:
+				globals = {
+					'vim',
+				},
+			},
+		},
+	},
 })
 
 -- Golang import and format:
@@ -121,14 +132,14 @@ vim.diagnostic.config {
 	severity_sort = true,
 	float = { border = 'rounded', source = 'if_many' },
 	underline = { severity = vim.diagnostic.severity.ERROR },
-	signs = vim.g.have_nerd_font and {
+	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = '󰅚 ',
-			[vim.diagnostic.severity.WARN] = '󰀪 ',
-			[vim.diagnostic.severity.INFO] = '󰋽 ',
-			[vim.diagnostic.severity.HINT] = '󰌶 ',
+			[vim.diagnostic.severity.ERROR] = 'E',
+			[vim.diagnostic.severity.WARN] = 'W',
+			[vim.diagnostic.severity.INFO] = 'I',
+			[vim.diagnostic.severity.HINT] = 'H',
 		},
-	} or {},
+	},
 	virtual_text = {
 		source = 'if_many',
 		spacing = 2,
