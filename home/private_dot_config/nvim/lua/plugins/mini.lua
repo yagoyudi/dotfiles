@@ -25,7 +25,10 @@ return {
 			-- File picker:
 			local pick = require('mini.pick')
 			pick.setup({
-				tool = 'rg'
+				tool = 'rg',
+				source = {
+					show = pick.default_show,
+				},
 			})
 
 			-- Simple and easy statusline.
