@@ -62,4 +62,4 @@ function chpwd-osc7-pwd() {
 }
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
-bindkey '^ ' autosuggest-accept
+bindkey '^P' autosuggest-accept
