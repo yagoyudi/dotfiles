@@ -1,5 +1,8 @@
 set -o vi
 
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
 export EDITOR="nvim"
 export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin"
@@ -19,4 +22,32 @@ alias k="kubecolor"
 alias c="chezmoi"
 alias weather="curl wttr.in"
 
-eval "$(starship init zsh)"
+source <(kubectl completion zsh)
+
+with_netbox() {
+  export NETBOX_TOKEN=$(gopass NETBOX_TOKEN)
+  export NETBOX_URL="https://netbox.c3sl.ufpr.br"
+
+  if [ "$#" -gt 0 ]; then
+    "$@"
+  fi
+}
+
+with_gitlab() {
+  export GITLAB_USERNAME=yyvf
+  export GITLAB_ACCESS_TOKEN=$(gopass GITLAB_TOKEN)
+
+  if [ "$#" -gt 0 ]; then
+    "$@"
+  fi
+}
+
+with_netbox_gitlab() {
+  with_netbox
+  with_gitlab
+
+  "$@"
+}
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
