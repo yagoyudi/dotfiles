@@ -63,6 +63,7 @@ end
 vim.lsp.enable({
 	'gopls',
 	'lua_ls',
+	'yamlls',
 })
 
 -- Golang LSP config:
