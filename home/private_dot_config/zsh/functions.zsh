@@ -1,6 +1,6 @@
 with_netbox() {
-  NETBOX_TOKEN=$(gopass NETBOX_TOKEN)
-  NETBOX_URL="https://netbox.c3sl.ufpr.br"
+  export NETBOX_TOKEN=$(gopass NETBOX_TOKEN)
+  export NETBOX_URL="https://netbox.c3sl.ufpr.br"
 
   if [ "$#" -gt 0 ]; then
     "$@"
@@ -8,8 +8,8 @@ with_netbox() {
 }
 
 with_gitlab() {
-  GITLAB_USERNAME=yyvf
-  GITLAB_ACCESS_TOKEN=$(gopass GITLAB_TOKEN)
+  export GITLAB_USERNAME=yyvf
+  export GITLAB_ACCESS_TOKEN=$(gopass GITLAB_TOKEN)
 
   if [ "$#" -gt 0 ]; then
     "$@"
