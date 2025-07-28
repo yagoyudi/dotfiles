@@ -35,3 +35,8 @@ function chpwd-osc7-pwd() {
     (( ZSH_SUBSHELL )) || osc7-pwd
 }
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+function netboxadm() {
+	curl -sL https://netbox.c3sl.ufpr.br/api/plugins/netbox-proxmox-sync/update/ 2>&1 > /dev/null
+	$HOME/gitlab.c3sl.ufpr.br/root/netboxadm/netboxadm $@
+}
