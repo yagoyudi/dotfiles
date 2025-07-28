@@ -184,3 +184,10 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
 	end,
 })
 
+-- YamlFmt:
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "yaml",
+	callback = function()
+		vim.opt_local.formatprg = "yamlfmt /dev/stdin"
+	end,
+})
