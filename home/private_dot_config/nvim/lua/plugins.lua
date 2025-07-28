@@ -63,7 +63,6 @@ end
 vim.lsp.enable({
 	'gopls',
 	'lua_ls',
-	'yamlls',
 })
 
 -- Golang LSP config:
@@ -183,4 +182,27 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
 			lint.try_lint()
 		end
 	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.yml", "*.yaml" },
+  callback = function()
+    -- Obtém o conteúdo atual do buffer
+    local buf = vim.api.nvim_get_current_buf()
+    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+    local input = table.concat(lines, "\n")
+
+    -- Executa yamlfmt passando o conteúdo via stdin
+    local output = vim.fn.system("yamlfmt /dev/stdin", input)
+
+    -- Verifica se houve erro
+    if vim.v.shell_error ~= 0 then
+      vim.notify("yamlfmt failed: " .. output, vim.log.levels.ERROR)
+      return
+    end
+
+    -- Substitui o conteúdo do buffer com a saída formatada
+    local formatted_lines = vim.split(output, "\n", { trimempty = true })
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, formatted_lines)
+  end,
 })
