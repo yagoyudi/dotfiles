@@ -193,7 +193,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     local input = table.concat(lines, "\n")
 
     -- Executa yamlfmt passando o conteúdo via stdin
-    local output = vim.fn.system("yamlfmt /dev/stdin", input)
+    local output = vim.fn.system("yamlfmt", input)
 
     -- Verifica se houve erro
     if vim.v.shell_error ~= 0 then
