@@ -13,11 +13,11 @@
         ];
       };
 
-      y = nixpkgs.lib.nixosSystem {
+      "m93p-tiny" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/y/configuration.nix
+          ./hosts/m93p-tiny/configuration.nix
         ];
       };
     };

@@ -4,16 +4,16 @@
 		./hardware-configuration.nix
 	];
 
+	
 
-
-
+	
 	boot = {
 		loader = {
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
 	};
-
+	
 
 	nix = {
 		gc = {
@@ -22,14 +22,14 @@
 		};
 	};
 
+	
 
-
-
+	
 	networking = {
-		hostName = "y";
+		hostName = "m93p-tiny";
 		networkmanager.enable = true;
 	};
-
+	
 
 	time.timeZone = "America/Sao_Paulo";
 
@@ -86,16 +86,16 @@
 		};
 	};
 
+	
 
-
-
+	
 	hardware = {
 		bluetooth = {
 			enable = true;
 			powerOnBoot = true;
 		};
 	};
-
+	
 
 	users = {
 		defaultUserShell = pkgs.zsh;
@@ -212,9 +212,9 @@
 		};
 	};
 
+	
 
-
-
+	
 	services = {
 		openssh = {
 			enable = true;
@@ -224,7 +224,7 @@
 			};
 		};
 	};
-
+	
 
 	environment = {
 		systemPackages = with pkgs; [
