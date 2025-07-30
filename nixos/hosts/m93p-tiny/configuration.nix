@@ -31,6 +31,10 @@
 	networking = {
 		hostName = "m93p-tiny";
 		useNetworkd = true;
+		wireless = {
+			enable = true;
+			userControlled.enable = true;
+		};
 	};
 
 	systemd.network = {
