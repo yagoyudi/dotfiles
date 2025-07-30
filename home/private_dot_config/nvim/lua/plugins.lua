@@ -170,7 +170,7 @@ treesitter.setup({
 -- Linter:
 local lint = require('lint')
 lint.linters_by_ft = {
-	markdown = { 'markdownlint-cli2' },
+	-- markdown = { 'markdownlint-cli2' },
 	go = { 'golangcilint' },
 }
 local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
