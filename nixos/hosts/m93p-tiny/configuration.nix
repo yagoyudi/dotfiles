@@ -30,7 +30,7 @@
 	
 	networking = {
 		hostName = "m93p-tiny";
-		# networkmanager.enable = true;
+		useNetworkd = true;
 	};
 
 	systemd.network = {
