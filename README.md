@@ -1,11 +1,18 @@
-Install with:
+# Dotfiles
+
+System-level configuration managed by NixOS and home-level configuration
+managed by Chezmoi.
+
+## Installation
 
 ```sh
-chezmoi init --apply yagoyudi
-```
+# Clone the repository:
+gh repo clone yagoyudi/dotfiles
 
-If you don't have chezmoi installed:
+# Install system configuration:
+cd nixos && sudo nixos-rebuild switch --flake .#$MACHINE_HOSTNAME
 
-```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply yagoyudi
+# Install home configuration:
+# NOTE: chezmoi needs secrets stored in gopass
+chezmoi apply
 ```
