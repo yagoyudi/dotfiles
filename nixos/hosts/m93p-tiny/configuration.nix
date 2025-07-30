@@ -8,7 +8,7 @@
 		../../modules/nixpkgs.nix
 		../../modules/i18n.nix
 		../../modules/timezone.nix
-		../../modules/docker.nix
+		../../modules/podman.nix
 		../../modules/y.nix
 		../../modules/zsh.nix
 		../../modules/fonts.nix
