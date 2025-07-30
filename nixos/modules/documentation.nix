@@ -1,0 +1,5 @@
+{
+	documentation = {
+		dev.enable = true;
+	};
+}

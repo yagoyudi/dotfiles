@@ -2,10 +2,25 @@
 {
 	imports = [
 		./hardware-configuration.nix
+		../../modules/ssh.nix
+		../../modules/ssh-agent.nix
+		../../modules/gpg-agent.nix
+		../../modules/nix.nix
+		../../modules/nixpkgs.nix
+		../../modules/i18n.nix
+		../../modules/timezone.nix
+		../../modules/docker.nix
+		../../modules/y.nix
+		../../modules/zsh.nix
+		../../modules/fonts.nix
+		../../modules/bluetooth.nix
+		../../modules/sway.nix
+		../../modules/doas.nix
+		../../modules/documentation.nix
+		../../modules/xdg-portal.nix
+		../../modules/rtkit.nix
+		../../modules/auto-upgrade.nix
 	];
-
-	
-
 	
 	boot = {
 		loader = {
@@ -14,217 +29,12 @@
 		};
 	};
 	
-
-	nix = {
-		gc = {
-			automatic = true;
-			dates = "weekly";
-		};
-	};
-
-	
-
-	
 	networking = {
 		hostName = "m93p-tiny";
 		networkmanager.enable = true;
 	};
 	
-
-	time.timeZone = "America/Sao_Paulo";
-
-	i18n = {
-		defaultLocale = "en_US.UTF-8";
-
-		extraLocaleSettings = {
-			LC_ADDRESS = "pt_BR.UTF-8";
-			LC_IDENTIFICATION = "pt_BR.UTF-8";
-			LC_MEASUREMENT = "pt_BR.UTF-8";
-			LC_MONETARY = "pt_BR.UTF-8";
-			LC_NAME = "pt_BR.UTF-8";
-			LC_NUMERIC = "pt_BR.UTF-8";
-			LC_PAPER = "pt_BR.UTF-8";
-			LC_TELEPHONE = "pt_BR.UTF-8";
-			LC_TIME = "pt_BR.UTF-8";
-		};
-	};
-
 	console.keyMap = "br-abnt2";
-
-	security = {
-		rtkit.enable = true;
-
-		pam = {
-			services.swaylock = {};
-		};
-
-		sudo = {
-			enable = false;
-			wheelNeedsPassword = false;
-		};
-
-		doas = {
-			enable = true;
-			extraRules = [
-				{
-					users = [
-						"y"
-					];
-					keepEnv = true;
-					noPass = true;
-				}
-			];
-		};
-	};
-
-	virtualisation = {
-		docker = {
-			enable = true;
-		};
-		containerd = {
-			enable = true;
-		};
-	};
-
-	
-
-	
-	hardware = {
-		bluetooth = {
-			enable = true;
-			powerOnBoot = true;
-		};
-	};
-	
-
-	users = {
-		defaultUserShell = pkgs.zsh;
-		users.y = {
-			isNormalUser = true;
-			description = "y";
-			shell = pkgs.zsh;
-			extraGroups = [
-				"networkmanager"
-				"wheel"
-				"docker"
-			];
-			packages = with pkgs; [
-				gnupg
-				zathura
-				wezterm
-				foot
-				dmenu
-				gh
-				chezmoi
-				tmux
-				lua-language-server
-				clang-tools
-				opentofu
-				go-task
-				gopls
-				kubevirt
-				yaml-language-server
-				pyright
-				gopass
-				eza
-				stylua
-				git-lfs
-				zoxide
-				starship
-				go
-				golangci-lint
-				gotools
-				mage
-				glow
-				emacs
-				gcc
-				tree
-				lua
-				zig
-				tldr
-				qutebrowser
-				rootlesskit
-				markdownlint-cli2
-				slirp4netns
-				cni-plugins
-				runc
-				nerdctl
-				mdbook
-				pulsemixer
-				just
-				grim
-				thunderbird
-				gnumake
-				firefox
-				yamlfmt
-				slurp
-				speedtest-go
-				ripgrep
-				talosctl
-				minikube
-				kubernetes-helm
-				podman
-				buildah
-				k9s
-				argocd
-				fluxcd
-				brightnessctl
-				tea
-				geek-life
-				libreoffice
-				yt-dlp
-				obsidian
-				hugo
-				anki
-				sway-launcher-desktop
-				tcpdump
-				jq
-				yq
-				etcd
-				kind
-				kubectl
-				kubecolor
-				kubectx
-				gotop
-				gopls
-				nuclei
-				gofumpt
-				helix
-			];
-		};
-	};
-
-	fonts = {
-		packages = with pkgs; [
-			fira-code
-			fira-mono
-			fira-sans
-			fira-code-symbols
-			twitter-color-emoji
-		];
-		fontconfig = {
-			defaultFonts = {
-				monospace = ["Fira Mono" "Source Code Pro"];
-				serif = ["Fira Serif" "Source Serif Pro"];
-				sansSerif = ["Fira Sans" "Source Sans Pro"];
-				emoji = ["Twitter Color Emoji"];
-			};
-		};
-	};
-
-	
-
-	
-	services = {
-		openssh = {
-			enable = true;
-			settings = {
-				PermitRootLogin = "no";
-				PasswordAuthentication = false;
-			};
-		};
-	};
-	
 
 	environment = {
 		systemPackages = with pkgs; [
@@ -232,9 +42,6 @@
 			git
 			wl-clipboard
 			xdg-desktop-portal-wlr
-
-			#sway
-			swaylock
 
 			wayland
 			wlr-randr
@@ -269,39 +76,5 @@
 		];
 	};
 
-	documentation = {
-		dev.enable = true;
-	};
-
-	xdg.portal = {
-		enable = true;
-		configPackages = with pkgs; [
-			xdg-desktop-portal-wlr
-		];
-		extraPortals = with pkgs; [
-			xdg-desktop-portal-wlr
-		];
-	};
-
-	nixpkgs.config.allowUnfree = true;
-
-	programs = {
-		zsh = {
-			enable = true;
-			enableCompletion = true;
-			autosuggestions.enable = true;
-			syntaxHighlighting.enable = true;
-		};
-		sway.enable = true;
-		ssh.startAgent = true;
-		gnupg.agent.enable = true;
-	};
-
-	system = {
-		stateVersion = "24.11";
-		autoUpgrade = {
-			enable = true;
-			allowReboot = false;
-		};
-	};
+	system.stateVersion = "24.11";
 }

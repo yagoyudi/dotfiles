@@ -1,0 +1,96 @@
+{ pkgs, ... }:
+{
+	users.users.y = {
+		isNormalUser = true;
+		description = "y";
+		shell = pkgs.zsh;
+		extraGroups = [
+			"networkmanager"
+			"wheel"
+			"docker"
+		];
+		packages = with pkgs; [
+			gnupg
+			zathura
+			wezterm
+			foot
+			dmenu
+			gh
+			chezmoi
+			tmux
+			lua-language-server
+			clang-tools
+			opentofu
+			go-task
+			gopls
+			kubevirt
+			yaml-language-server
+			pyright
+			gopass
+			eza
+			stylua
+			git-lfs
+			zoxide
+			starship
+			go
+			golangci-lint
+			gotools
+			mage
+			glow
+			emacs
+			gcc
+			tree
+			lua
+			zig
+			tldr
+			qutebrowser
+			rootlesskit
+			markdownlint-cli2
+			slirp4netns
+			cni-plugins
+			runc
+			nerdctl
+			mdbook
+			pulsemixer
+			just
+			grim
+			thunderbird
+			gnumake
+			firefox
+			yamlfmt
+			slurp
+			speedtest-go
+			ripgrep
+			talosctl
+			minikube
+			kubernetes-helm
+			podman
+			buildah
+			k9s
+			argocd
+			fluxcd
+			brightnessctl
+			tea
+			geek-life
+			libreoffice
+			yt-dlp
+			obsidian
+			hugo
+			anki
+			sway-launcher-desktop
+			tcpdump
+			jq
+			yq
+			etcd
+			kind
+			kubectl
+			kubecolor
+			kubectx
+			gotop
+			gopls
+			nuclei
+			gofumpt
+			helix
+		];
+	};
+}
