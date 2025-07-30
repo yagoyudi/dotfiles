@@ -2,6 +2,8 @@
 {
 	environment.systemPackages = with pkgs; [
 		neovim
+		emacs
+
 		git
 		wl-clipboard
 		xdg-desktop-portal-wlr
