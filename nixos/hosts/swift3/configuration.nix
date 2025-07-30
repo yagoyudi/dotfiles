@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
 	imports = [
 		./hardware-configuration.nix
@@ -19,9 +18,10 @@
 		../../modules/gpg-agent.nix
 		../../modules/auto-upgrade.nix
 		../../modules/bluetooth.nix
+		../../modules/system-pkgs.nix
+		../../modules/pipewire.nix
 	];
 
-	
 	boot = {
 		loader = {
 			systemd-boot.enable = true;
@@ -40,78 +40,7 @@
 		];
 	};
 	
-	security = {
-		rtkit.enable = true;
-	};
-
-	hardware = {
-		graphics.enable = true;
-	};
+	hardware.graphics.enable = true;
 	
-	services = {
-		pulseaudio.enable = false;
-		pipewire = {
-			enable = true;
-			alsa.enable = true;
-			alsa.support32Bit = true;
-			pulse.enable = true;
-			# If you want to use JACK applications, uncomment this
-			#jack.enable = true;
-
-			# use the example session manager (no others are packaged yet so this is enabled by default,
-			# no need to redefine it in your config for now)
-			#media-session.enable = true;
-		};
-
-		tailscale = {
-			enable = false;
-		};
-	};
-
-	environment = {
-		systemPackages = with pkgs; [
-			neovim
-			git
-			wl-clipboard
-			xdg-desktop-portal-wlr
-
-			#sway
-			swaylock
-
-			wayland
-			wlr-randr
-			wl-clip-persist
-			wl-clipboard
-			wf-recorder # record screen
-			wlprop # xprop clone for wlroots based compositors
-			waypipe
-			wdisplays
-
-			xdg-utils
-
-			devbox
-
-			busybox
-			dig
-
-			imv
-			mpv
-			mako
-			libnotify
-
-			traceroute
-			nmap
-
-			man-pages
-			man-pages-posix
-
-			eza
-
-			zsh-vi-mode
-		];
-	};
-
-	nixpkgs.config.allowUnfree = true;
-
 	system.stateVersion = "24.11";
 }
