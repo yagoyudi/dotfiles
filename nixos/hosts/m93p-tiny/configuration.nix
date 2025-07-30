@@ -30,8 +30,22 @@
 	
 	networking = {
 		hostName = "m93p-tiny";
-		networkmanager.enable = true;
+		# networkmanager.enable = true;
 	};
+
+	systemd.network = {
+		enable = true;
+
+		networks."10-eno1" = {
+			matchConfig.Name = "eno1";
+			networkConfig.DHCP = "ipv4";
+		};
+
+		networks."20-wlp2s0" = {
+			matchConfig.Name = "wlp2s0";
+			networkConfig.DHCP = "ipv4";
+		};
+	}
 	
 	console.keyMap = "br-abnt2";
 
