@@ -45,7 +45,7 @@
 			matchConfig.Name = "wlp2s0";
 			networkConfig.DHCP = "ipv4";
 		};
-	}
+	};
 	
 	console.keyMap = "br-abnt2";
 
