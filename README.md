@@ -14,5 +14,5 @@ cd nixos && sudo nixos-rebuild switch --flake .#$MACHINE_HOSTNAME
 
 # Install home configuration:
 # NOTE: chezmoi needs secrets stored in gopass
-chezmoi apply
+chezmoi init --apply yagoyudi
 ```
