@@ -1,7 +1,7 @@
 {
 	imports = [
 		./hardware-configuration.nix
-		../../modules/docker.nix
+		../../modules/podman.nix
 		../../modules/nix.nix
 		../../modules/nixpkgs.nix
 		../../modules/timezone.nix
