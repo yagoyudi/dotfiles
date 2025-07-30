@@ -17,7 +17,6 @@
 		../../modules/doas.nix
 		../../modules/documentation.nix
 		../../modules/xdg-portal.nix
-		../../modules/rtkit.nix
 		../../modules/auto-upgrade.nix
 		../../modules/system-pkgs.nix
 	];
