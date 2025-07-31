@@ -20,6 +20,14 @@
           ./hosts/m93p-tiny/configuration.nix
         ];
       };
+
+      m70s = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/m70s/configuration.nix
+        ];
+      };
     };
   };
 }
