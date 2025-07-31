@@ -33,6 +33,7 @@ bindsym Mod1+9 workspace number 9
 bindsym Mod1+Down focus down
 bindsym Mod1+Left focus left
 bindsym Mod1+Return exec $term
+bindsym Mod1+Shift+Return exec emacsclient -c
 bindsym Mod1+d exec $menu
 bindsym Mod1+Right focus right
 bindsym Mod1+Shift+0 move container to workspace number 10
@@ -116,6 +117,7 @@ bar {
 }
 
 exec foot --server
+exec emacs --daemon
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target
 exec mako &
 exec swayidle -w \
