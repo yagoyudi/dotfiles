@@ -20,6 +20,7 @@
 		../../modules/bluetooth.nix
 		../../modules/system-pkgs.nix
 		../../modules/pipewire.nix
+		../../modules/emacs.nix
 	];
 
 	boot = {

@@ -19,6 +19,7 @@
 		../../modules/xdg-portal.nix
 		../../modules/auto-upgrade.nix
 		../../modules/system-pkgs.nix
+		../../modules/emacs.nix
 	];
 	
 	boot = {
