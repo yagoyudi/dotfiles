@@ -29,12 +29,8 @@
 	};
 	
 	networking = {
-		hostName = "m93p-tiny";
+		hostName = "m70s";
 		useNetworkd = true;
-		wireless = {
-			enable = true;
-			userControlled.enable = true;
-		};
 	};
 
 	systemd.network = {
@@ -42,11 +38,6 @@
 
 		networks."10-eno1" = {
 			matchConfig.Name = "eno1";
-			networkConfig.DHCP = "ipv4";
-		};
-
-		networks."20-wlp2s0" = {
-			matchConfig.Name = "wlp2s0";
 			networkConfig.DHCP = "ipv4";
 		};
 	};
