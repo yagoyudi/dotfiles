@@ -21,6 +21,7 @@
 		../../modules/system-pkgs.nix
 		../../modules/pipewire.nix
 		../../modules/emacs.nix
+		../../modules/river.nix
 	];
 
 	boot = {
