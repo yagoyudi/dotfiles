@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Make apps use server-side decoration:
+riverctl rule-add -app-id "firefox" ssd
+riverctl rule-add -app-id "org.pwmt.zathura" ssd

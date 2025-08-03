@@ -1,0 +1,106 @@
+#!/bin/sh
+
+riverctl map normal Mod1 R spawn $HOME/.config/river/init
+riverctl map normal None Print spawn "slurp -d | grim -g - - | wl-copy && notify-send -t 2000 'Screenshot taken'"
+riverctl map normal Mod1+Shift Return spawn footclient
+riverctl map normal Mod1 D spawn "bemenu-run -p Run -l 10"
+
+riverctl map normal Mod1+Shift Q close # Close the focused view
+riverctl map normal Mod1+Shift E exit # Exit river
+riverctl map normal Mod1 J focus-view next # Focus next window in layout stack
+riverctl map normal Mod1 K focus-view previous # Focus prev window in layout stack
+riverctl map normal Mod1 Return zoom # Move focused window to top of stack
+# riverctl map normal Mod1+Shift J swap next # Swap focused window with next window
+# riverctl map normal Mod1+Shift K swap previous # Swap focused window with prev window
+riverctl map normal Mod1 Period focus-output next # Focus next monitor
+riverctl map normal Mod1 Comma focus-output previous # Focus previous monitor
+riverctl map normal Mod1+Shift Period send-to-output next # Send window to next monitor
+riverctl map normal Mod1+Shift Comma send-to-output previous # Send window to previous monitor
+
+# Mod1+H and Mod1+L to decrease/increase the main ratio of rivertile(1)
+riverctl map normal Mod1 H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Mod1 L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Mod1+Shift+H and Mod1+Shift+L to increment/decrement the main count of rivertile(1)
+# riverctl map normal Mod1+Shift H send-layout-cmd rivertile "main-count +1"
+# riverctl map normal Mod1+Shift L send-layout-cmd rivertile "main-count -1"
+
+# Mod1+Alt+{H,J,K,L} to move views
+# riverctl map normal Mod1 H move left 100
+# riverctl map normal Mod1 J move down 100
+# riverctl map normal Mod1 K move up 100
+# riverctl map normal Mod1 L move right 100
+
+# # Mod1+Alt+Control+{H,J,K,L} to snap views to screen edges
+# riverctl map normal Mod1+Alt+Control H snap left
+# riverctl map normal Mod1+Alt+Control J snap down
+# riverctl map normal Mod1+Alt+Control K snap up
+# riverctl map normal Mod1+Alt+Control L snap right
+
+# # Mod1+Alt+Shift+{H,J,K,L} to resize views
+# riverctl map normal Mod1+Alt+Shift H resize horizontal -100
+# riverctl map normal Mod1+Alt+Shift J resize vertical 100
+# riverctl map normal Mod1+Alt+Shift K resize vertical -100
+# riverctl map normal Mod1+Alt+Shift L resize horizontal 100
+
+# Mod1 + Left Mouse Button to move views
+riverctl map-pointer normal Mod1 BTN_LEFT move-view
+
+# Mod1 + Right Mouse Button to resize views
+riverctl map-pointer normal Mod1 BTN_RIGHT resize-view
+
+# Mod1 + Middle Mouse Button to toggle float
+riverctl map-pointer normal Mod1 BTN_MIDDLE toggle-float
+
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Mod1+[1-9] to focus tag [0-8]
+    riverctl map normal Mod1 $i set-focused-tags $tags
+
+    # Mod1+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal Mod1+Shift $i set-view-tags $tags
+
+    # Mod1+Control+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal Mod1+Control $i toggle-focused-tags $tags
+
+    # Mod1+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal Mod1+Shift+Control $i toggle-view-tags $tags
+done
+
+# Mod1+0 to focus all tags
+# Mod1+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal Mod1 0 set-focused-tags $all_tags
+riverctl map normal Mod1+Shift 0 set-view-tags $all_tags
+
+# Mod1+Space to toggle float:
+riverctl map normal Mod1 Space toggle-float
+
+# Mod1+F to toggle fullscreen:
+riverctl map normal Mod1 F toggle-fullscreen
+
+# Mod1+{Up,Right,Down,Left} to change layout orientation:
+riverctl map normal Mod1 Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal Mod1 Right send-layout-cmd rivertile "main-location right"
+riverctl map normal Mod1 Down  send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Mod1 Left  send-layout-cmd rivertile "main-location left"
+
+# Declare a passthrough mode. This mode has only a single mapping to return to
+# normal mode. This makes it useful for testing a nested wayland compositor
+riverctl declare-mode passthrough
+riverctl map normal Mod1 F11 enter-mode passthrough
+riverctl map passthrough Mod1 F11 enter-mode normal
+
+# Media keys:
+riverctl map normal Print 'grim -g "$(slurp -d)" - | wl-copy'
+for mode in normal locked
+do
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pulsemixer --change-volume +5'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'pulsemixer --change-volume -5'
+    riverctl map $mode None XF86AudioMute         spawn 'pulsemixer --toggle-mute'
+
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+done

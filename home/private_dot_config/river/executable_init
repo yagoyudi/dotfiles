@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# See the river(1), riverctl(1), and rivertile(1) man pages for complete
+# documentation.
+
+for module in "$HOME"/.config/river/modules/*; do
+    source "$module"
+done
+
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile

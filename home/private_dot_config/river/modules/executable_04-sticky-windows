@@ -1,0 +1,16 @@
+#!/bin/sh
+
+all_tags=$(((1 << 32) - 1))
+sticky_tag=$((1 << 31))
+all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
+
+riverctl map normal Mod1 S toggle-view-tags $sticky_tag
+riverctl spawn-tagmask ${all_but_sticky_tag}
+
+# Modify the normal keybind to always select the sticky tag:
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+    # To focus tag [0-8]:
+    riverctl map normal Mod1 $i set-focused-tags $(($sticky_tag + $tags))
+done

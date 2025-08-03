@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Set background and border color:
+riverctl background-color 0x000000
+riverctl border-color-focused 0xFFB277
+riverctl border-color-unfocused 0x586e75
+
+rivertile -view-padding 0 -outer-padding 0 &

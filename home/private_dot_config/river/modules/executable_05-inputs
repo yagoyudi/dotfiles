@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Set keyboard repeat rate:
+riverctl set-repeat 50 300
+
+# Make Caps an addicional Escape:
+riverctl keyboard-layout -options caps:escape br
+
+riverctl input pointer-1739-52544-SYNA7DAB:01_06CB:CD40_Touchpad tap enabled

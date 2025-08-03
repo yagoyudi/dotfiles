@@ -1,0 +1,5 @@
+#!/bin/sh
+
+riverctl spawn "foot --server"
+riverctl spawn "mako"
+riverctl spawn "river-tag-overlay &"
