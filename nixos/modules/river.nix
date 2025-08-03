@@ -5,6 +5,5 @@
 		river-tag-overlay
 		bemenu
 		lswt
-		sandbar
 	];
 }
