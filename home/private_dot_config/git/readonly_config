@@ -22,3 +22,6 @@
 
 [safe]
 	directory = /home/y/github.com/yagoyudi/dotfiles
+
+[url "ssh://git@gitlab.c3sl.ufpr.br/"]
+    insteadOf = https://gitlab.c3sl.ufpr.br/
