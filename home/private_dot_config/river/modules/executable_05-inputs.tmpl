@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Set keyboard repeat rate:
+riverctl set-repeat 50 300
+
+# Make Caps an addicional Escape:
+riverctl keyboard-layout -options caps:escape br
+
+{{ if eq .chezmoi.hostname "swift3" }}
+riverctl input pointer-1739-52544-SYNA7DAB:01_06CB:CD40_Touchpad tap enabled
+{{ end }}
+
+{{ if eq .chezmoi.hostname "m70s" }}
+riverctl input pointer-6127-24717-PixArt_Lenovo_USB_Optical_Mouse accel-profile flat
+riverctl input pointer-6127-24717-PixArt_Lenovo_USB_Optical_Mouse pointer-accel -0.3
+{{ end }}
