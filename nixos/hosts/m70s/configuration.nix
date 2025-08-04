@@ -20,6 +20,7 @@
 		../../modules/auto-upgrade.nix
 		../../modules/system-pkgs.nix
 		../../modules/emacs.nix
+		../../modules/river.nix
 	];
 	
 	boot = {
