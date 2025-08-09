@@ -43,6 +43,7 @@
 			gnumake
 			firefox
 			yamlfmt
+			clock-rs
 			speedtest-go
 			ripgrep
 			talosctl
