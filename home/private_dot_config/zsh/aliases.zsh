@@ -6,3 +6,4 @@ alias e=$EDITOR
 alias k="kubecolor"
 alias c="chezmoi"
 alias weather="curl wttr.in"
+alias clock="clock-rs -s"
