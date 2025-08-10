@@ -3,3 +3,7 @@
 riverctl spawn "foot --server"
 riverctl spawn "mako"
 riverctl spawn "river-tag-overlay &"
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
