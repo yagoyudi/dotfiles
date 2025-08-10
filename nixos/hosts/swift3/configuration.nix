@@ -22,6 +22,7 @@
 		../../modules/pipewire.nix
 		../../modules/emacs.nix
 		../../modules/river.nix
+		../../modules/gocharge.nix
 	];
 
 	boot = {
