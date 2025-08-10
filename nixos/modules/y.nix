@@ -19,20 +19,22 @@
 			lua-language-server
 			clang-tools
 			opentofu
-			go-task
-			gopls
 			kubevirt
 			yaml-language-server
 			pyright
-			gopass
 			eza
 			stylua
 			git-lfs
 			zoxide
 			starship
 			go
+			gopls
+			gofumpt
+			goreleaser
+			gopass
 			golangci-lint
 			gotools
+			gotop
 			gcc
 			tree
 			markdownlint-cli2
@@ -68,10 +70,7 @@
 			kubectl
 			kubecolor
 			kubectx
-			gotop
-			gopls
 			nuclei
-			gofumpt
 		];
 	};
 }
