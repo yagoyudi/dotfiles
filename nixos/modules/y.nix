@@ -58,7 +58,6 @@
 			brightnessctl
 			libreoffice
 			yt-dlp
-			obsidian
 			hugo
 			anki
 			sway-launcher-desktop
