@@ -16,7 +16,6 @@
 		../../modules/zsh.nix
 		../../modules/ssh-agent.nix
 		../../modules/gpg-agent.nix
-		../../modules/auto-upgrade.nix
 		../../modules/bluetooth.nix
 		../../modules/system-pkgs.nix
 		../../modules/pipewire.nix
