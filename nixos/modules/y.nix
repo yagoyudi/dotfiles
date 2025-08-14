@@ -70,6 +70,7 @@
 			kubecolor
 			kubectx
 			nuclei
+			cilium-cli
 		];
 	};
 }
