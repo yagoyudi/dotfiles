@@ -19,7 +19,6 @@ deps.add({ source = 'nvim-treesitter/nvim-treesitter' })
 deps.add({ source = 'neovim/nvim-lspconfig' })
 deps.add({ source = 'mfussenegger/nvim-lint' })
 deps.add({ source = 'MeanderingProgrammer/render-markdown.nvim' })
-deps.add({ source = 'chomosuke/typst-preview.nvim' })
 
 -- Oil:
 local oil = require('oil')
