@@ -19,6 +19,7 @@ deps.add({ source = 'nvim-treesitter/nvim-treesitter' })
 deps.add({ source = 'neovim/nvim-lspconfig' })
 deps.add({ source = 'mfussenegger/nvim-lint' })
 deps.add({ source = 'MeanderingProgrammer/render-markdown.nvim' })
+deps.add({ source = 'kaarmu/typst.vim' })
 
 -- Oil:
 local oil = require('oil')
@@ -188,3 +189,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
 	end,
 })
 
+-- Typst:
+local typst = require('kaarmu/typst.vim')
+typst.setup({})
