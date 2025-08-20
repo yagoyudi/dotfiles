@@ -190,5 +190,5 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
 })
 
 -- Typst:
-local typst = require('kaarmu/typst.vim')
+local typst = require('typst')
 typst.setup({})
