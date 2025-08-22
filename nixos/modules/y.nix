@@ -3,7 +3,6 @@
 	users.users.y = {
 		isNormalUser = true;
 		description = "y";
-		shell = pkgs.zsh;
 		extraGroups = [
 			"networkmanager"
 			"wheel"
