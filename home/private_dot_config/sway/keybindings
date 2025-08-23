@@ -1,6 +1,6 @@
 set $term footclient
 set $browser firefox
-set $menu dmenu_run -l 10 -p Run
+set $menu wmenu-run -l 10 -p Run
 
 bindsym Mod1+0 workspace number 10
 bindsym Mod1+1 workspace number 1
