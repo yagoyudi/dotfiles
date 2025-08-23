@@ -1,7 +1,7 @@
 #alias docker='nerdctl'
 alias sudo='doas'
 alias sudoedit='doas rnano'
-alias ls="eza"
+alias ls="eza -h"
 alias grep="grep --color=auto"
 alias e=$EDITOR
 alias k="kubecolor"
