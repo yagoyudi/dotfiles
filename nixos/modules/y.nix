@@ -10,6 +10,7 @@
 		];
 		packages = with pkgs; [
 			gnupg
+			tokei
 			typst
 			zathura
 			foot
