@@ -72,3 +72,5 @@ mode "resize" {
 	bindsym k resize shrink height 10px
 	bindsym l resize grow width 10px
 }
+
+#vim: filetype=swayconfig:
