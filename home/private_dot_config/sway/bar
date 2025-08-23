@@ -11,3 +11,5 @@ bar {
 		inactive_workspace #323232 #323232 #ffffff
 	}
 }
+
+# vim: filetype=swayconfig:

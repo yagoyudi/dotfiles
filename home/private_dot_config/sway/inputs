@@ -9,4 +9,4 @@ input "type:touchpad" {
 	tap enabled
 }
 
-#vim: filetype=swayconfig:
+# vim: filetype=swayconfig:
