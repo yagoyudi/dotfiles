@@ -6,7 +6,7 @@ eval "$(zoxide init bash)"
 
 # source <(kubectl completion bash)
 # source <(chezmoi completion bash)
-# source <(gopass completion bash)
+source <(gopass completion bash)
 
 # complete -F __start_kubectl k
 # complete -F __start_chezmoi c
