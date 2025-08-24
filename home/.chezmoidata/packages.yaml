@@ -18,3 +18,4 @@ packages:
       - fonts-noto-color-emoji
       - grim
       - slurp
+      - shellcheck
