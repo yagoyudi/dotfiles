@@ -5,6 +5,7 @@ packages:
       - golang
       - gpg
       - doas
+      - sudo
       - eza
       - firefox-esr
       - qutebrowser
