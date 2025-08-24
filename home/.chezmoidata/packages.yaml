@@ -16,3 +16,5 @@ packages:
       - tree
       - fonts-firacode
       - fonts-noto-color-emoji
+      - grim
+      - slurp
