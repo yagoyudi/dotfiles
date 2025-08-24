@@ -1,0 +1,5 @@
+#!/bin/sh
+
+{{ range .packages.debian.apt -}}
+doas apt install {{ . | quote }}
+{{ end -}}

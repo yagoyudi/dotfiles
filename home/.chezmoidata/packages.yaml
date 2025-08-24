@@ -1,0 +1,16 @@
+packages:
+  debian:
+    apt:
+      - curl
+      - golang
+      - gpg
+      - doas
+      - eza
+      - firefox-esr
+      - qutebrowser
+      - sway
+      - swaylock
+      - wl-clipboard
+      - zoxide
+      - tree
+      - fonts-firacode
