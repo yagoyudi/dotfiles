@@ -18,7 +18,7 @@ deps.add({ source = 'stevearc/oil.nvim' })
 deps.add({ source = 'nvim-treesitter/nvim-treesitter' })
 deps.add({ source = 'neovim/nvim-lspconfig' })
 deps.add({ source = 'mfussenegger/nvim-lint' })
-deps.add({ source = 'MeanderingProgrammer/render-markdown.nvim' })
+-- deps.add({ source = 'MeanderingProgrammer/render-markdown.nvim' })
 deps.add({ source = 'kaarmu/typst.vim' })
 
 -- Oil:
