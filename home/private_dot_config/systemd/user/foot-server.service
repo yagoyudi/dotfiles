@@ -7,7 +7,6 @@ NonBlocking=true
 Requires=%N.socket
 Description=Foot terminal server mode
 Documentation=man:foot(1)
-ConditionEnvironment=WAYLAND_DISPLAY
 
 [Install]
 WantedBy=default.target
